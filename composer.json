@@ -1,0 +1,35 @@
+{
+    "name": "yandex-money/yandex-checkout-payout-sdk-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "yandex-money",
+            "email": "cms@yamoney.ru"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "psr/log": "^1.0",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-libxml": "*"
+    },
+    "require-dev": {
+        "ext-xml": "*",
+        "phpunit/phpunit": "^4.8.35 || ^5.7",
+        "mockery/mockery": "^0.9.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "YandexCheckoutPayout\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\YandexCheckoutPayout\\": "tests/"
+        }
+    }
+}
