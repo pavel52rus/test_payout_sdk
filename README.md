@@ -1,4 +1,4 @@
-# Yandex.Checkout API PHP Client Library
+# Yandex.Checkout Payout API PHP Client Library
 
 [![Build Status](https://travis-ci.org/pavel52rus/test_payout_sdk.svg?branch=master)](https://travis-ci.org/pavel52rus/test_payout_sdk)
 
