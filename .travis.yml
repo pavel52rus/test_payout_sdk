@@ -7,16 +7,6 @@ php:
   - 7.2
   - 7.3
 
-matrix:
-  fast_finish: true
-  include:
-    - php: 5.3
-      dist: precise
-    - php: 5.4
-      dist: precise
-    - php: 5.5
-      dist: trusty
-
 cache:
   directories:
     - $HOME/.composer
