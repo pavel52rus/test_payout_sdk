@@ -118,13 +118,12 @@ class BankCardRecipient extends AbstractRecipient
     public function toArray()
     {
         $baseRecipient = [];
-        $cardRecipient =
-            [
-                'skr_destinationCardSynonim' => $this->getSkrDestinationCardSynonym(),
-                'pdr_city' => $this->getPdrCity(),
-                'pdr_postcode' => $this->getPdrPostcode(),
-                'pdr_docIssueDate' => $this->getPdrDocIssueDate(),
-            ];
+        $cardRecipient = [
+            'skr_destinationCardSynonim' => $this->getSkrDestinationCardSynonym(),
+            'pdr_city' => $this->getPdrCity(),
+            'pdr_postcode' => $this->getPdrPostcode(),
+            'pdr_docIssueDate' => $this->getPdrDocIssueDate(),
+        ];
 
         if ($this->hasCpsYmAccount()) {
             $cardRecipient['cps_ymAccount'] = $this->getCpsYmAccount();

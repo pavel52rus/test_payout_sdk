@@ -64,6 +64,7 @@ class Keychain
 
     /**
      * @param string $publicCert
+     * @return Keychain
      */
     public function setPublicCert($publicCert)
     {
@@ -76,6 +77,7 @@ class Keychain
             );
         }
         $this->publicCert = (string)$publicCert;
+        return $this;
     }
 
     /**
@@ -88,6 +90,7 @@ class Keychain
 
     /**
      * @param string $privateKey
+     * @return Keychain
      */
     public function setPrivateKey($privateKey)
     {
@@ -100,6 +103,7 @@ class Keychain
             );
         }
         $this->privateKey = (string)$privateKey;
+        return $this;
     }
 
     /**
@@ -112,6 +116,7 @@ class Keychain
 
     /**
      * @param string $keyPassword
+     * @return Keychain
      */
     public function setKeyPassword($keyPassword)
     {
@@ -124,5 +129,6 @@ class Keychain
             );
         }
         $this->keyPassword = (string)$keyPassword;
+        return $this;
     }
 }

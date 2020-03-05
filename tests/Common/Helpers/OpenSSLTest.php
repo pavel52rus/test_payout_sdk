@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Common\Helpers;
+namespace Tests\YandexCheckoutPayout\Common\Helpers;
 
 
 use PHPUnit\Framework\TestCase;

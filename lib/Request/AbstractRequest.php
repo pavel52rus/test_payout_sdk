@@ -103,13 +103,18 @@ abstract class AbstractRequest
         return $this->_validationError;
     }
 
+    /**
+     * @param $value
+     * @return $this
+     */
     public function setRequestName($value)
     {
         if (!TypeCast::canCastToString($value)) {
             throw new InvalidPropertyValueTypeException('Invalid requestName type', 0, 'requestName', $value);
         }
 
-        $this->requestName = $value;
+        $this->requestName = (string)$value;
+        return $this;
     }
 
     /**
@@ -123,10 +128,16 @@ abstract class AbstractRequest
     /**
      * Устанавливает время запроса
      * @param string $requestDT
+     * @return $this
      */
     public function setRequestDT($requestDT)
     {
-        $this->requestDT = $requestDT;
+        if (!TypeCast::canCastToString($requestDT)) {
+            throw new InvalidPropertyValueTypeException('Invalid requestDT type', 0, 'requestDT', $requestDT);
+        }
+
+        $this->requestDT = (string)$requestDT;
+        return $this;
     }
 
     /**
@@ -140,10 +151,16 @@ abstract class AbstractRequest
 
     /**
      * @param string $clientOrderId
+     * @return $this
      */
     public function setClientOrderId($clientOrderId)
     {
-        $this->clientOrderId = $clientOrderId;
+        if (!TypeCast::canCastToString($clientOrderId)) {
+            throw new InvalidPropertyValueTypeException('Invalid clientOrderId type', 0, 'clientOrderId', $clientOrderId);
+        }
+
+        $this->clientOrderId = (string)$clientOrderId;
+        return $this;
     }
 
     /**
@@ -157,10 +174,15 @@ abstract class AbstractRequest
     /**
      * Устанавливает формат запроса xml|json
      * @param FormatType $type
+     * @return $this
      */
     public function setFormatType(FormatType $type)
     {
+        if (!FormatType::valueExists($type)) {
+            throw new InvalidPropertyValueTypeException('Invalid formatType type', 0, 'formatType', $type);
+        }
         $this->formatType = $type;
+        return $this;
     }
 
     /**
