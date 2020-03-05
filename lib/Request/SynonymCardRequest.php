@@ -63,7 +63,7 @@ class SynonymCardRequest
 
     public function __construct()
     {
-        if (!is_null($_SERVER['PATH_INFO'])) {
+        if (!empty($_SERVER['PATH_INFO'])) {
             $this->setSkrErrorUrl($_SERVER['PATH_INFO'])
                  ->setSkrSuccessUrl($_SERVER['PATH_INFO']);
         }
