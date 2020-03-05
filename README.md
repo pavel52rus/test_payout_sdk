@@ -52,7 +52,7 @@ require __DIR__ . '/lib/autoload.php';
 use YandexCheckoutPayout\Client;
 use YandexCheckoutPayout\Request\Keychain;
 ```
-2. Создайте экземпляр объекта клиента и задайте идентификатор магазина и секретный ключ (их можно получить в личном кабинете Яндекс.Кассы). [Как выпустить секретный ключ](https://yandex.ru/support/checkout/payments/keys.html)
+2. Создайте экземпляр объекта ключницы передав туда данные ваших сертификатов, затем создайте экземпляр объекта клиента и задайте идентификатор шлюза, передайте объект ключницы.
 ```php
 $keychain = new Keychain('publicCert.cer', 'privateCert.pem', 'password');
 $client = new Client('000000', $keychain);
