@@ -1,6 +1,6 @@
 # Yandex.Checkout API PHP Client Library
 
-[![Build Status](https://travis-ci.org/pavel52rus/test_payout_sdk.svg?branch=master)](https://travis-ci.org/yandex-money/yandex-checkout-sdk-php)
+[![Build Status](https://travis-ci.org/pavel52rus/test_payout_sdk.svg?branch=master)](https://travis-ci.org/pavel52rus/test_payout_sdk)
 
 Russian | [English](https://github.com/yandex-money/yandex-checkout-sdk-php/blob/master/README.en.md)
 
