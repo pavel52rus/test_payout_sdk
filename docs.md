@@ -1,36 +1,12 @@
 ## Table of contents
 
 - [\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)
-- [\YandexCheckoutPayout\Client\BaseClient](#class-yandexcheckoutpayoutclientbaseclient)
-- [\YandexCheckoutPayout\Client\CurlClient](#class-yandexcheckoutpayoutclientcurlclient)
-- [\YandexCheckoutPayout\Client\CurlConfiguration](#class-yandexcheckoutpayoutclientcurlconfiguration)
-- [\YandexCheckoutPayout\Common\AbstractEnum (abstract)](#class-yandexcheckoutpayoutcommonabstractenum-abstract)
-- [\YandexCheckoutPayout\Common\HttpVerb](#class-yandexcheckoutpayoutcommonhttpverb)
 - [\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)
-- [\YandexCheckoutPayout\Common\ResponseSynonymCard](#class-yandexcheckoutpayoutcommonresponsesynonymcard)
 - [\YandexCheckoutPayout\Common\ResponseXmlObject](#class-yandexcheckoutpayoutcommonresponsexmlobject)
-- [\YandexCheckoutPayout\Common\Exceptions\ApiConnectionException](#class-yandexcheckoutpayoutcommonexceptionsapiconnectionexception)
-- [\YandexCheckoutPayout\Common\Exceptions\ApiException](#class-yandexcheckoutpayoutcommonexceptionsapiexception)
-- [\YandexCheckoutPayout\Common\Exceptions\AuthorizeException](#class-yandexcheckoutpayoutcommonexceptionsauthorizeexception)
-- [\YandexCheckoutPayout\Common\Exceptions\EmptyPropertyValueException](#class-yandexcheckoutpayoutcommonexceptionsemptypropertyvalueexception)
-- [\YandexCheckoutPayout\Common\Exceptions\ExtensionNotFoundException](#class-yandexcheckoutpayoutcommonexceptionsextensionnotfoundexception)
-- [\YandexCheckoutPayout\Common\Exceptions\InvalidPropertyException](#class-yandexcheckoutpayoutcommonexceptionsinvalidpropertyexception)
-- [\YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueException](#class-yandexcheckoutpayoutcommonexceptionsinvalidpropertyvalueexception)
-- [\YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException](#class-yandexcheckoutpayoutcommonexceptionsinvalidpropertyvaluetypeexception)
-- [\YandexCheckoutPayout\Common\Exceptions\InvalidRequestException](#class-yandexcheckoutpayoutcommonexceptionsinvalidrequestexception)
-- [\YandexCheckoutPayout\Common\Exceptions\JsonException](#class-yandexcheckoutpayoutcommonexceptionsjsonexception)
-- [\YandexCheckoutPayout\Common\Exceptions\NotFoundException](#class-yandexcheckoutpayoutcommonexceptionsnotfoundexception)
-- [\YandexCheckoutPayout\Common\Exceptions\OpenSSLException](#class-yandexcheckoutpayoutcommonexceptionsopensslexception)
-- [\YandexCheckoutPayout\Common\Exceptions\TooManyRequestsException](#class-yandexcheckoutpayoutcommonexceptionstoomanyrequestsexception)
-- [\YandexCheckoutPayout\Common\Exceptions\XmlException](#class-yandexcheckoutpayoutcommonexceptionsxmlexception)
+- [\YandexCheckoutPayout\Common\ResponseSynonymCard](#class-yandexcheckoutpayoutcommonresponsesynonymcard)
 - [\YandexCheckoutPayout\Common\Helpers\ErrorConverter (abstract)](#class-yandexcheckoutpayoutcommonhelperserrorconverter-abstract)
 - [\YandexCheckoutPayout\Common\Helpers\GeneratorCsr](#class-yandexcheckoutpayoutcommonhelpersgeneratorcsr)
 - [\YandexCheckoutPayout\Common\Helpers\OpenSSL](#class-yandexcheckoutpayoutcommonhelpersopenssl)
-- [\YandexCheckoutPayout\Common\Helpers\Parser](#class-yandexcheckoutpayoutcommonhelpersparser)
-- [\YandexCheckoutPayout\Common\Helpers\Random](#class-yandexcheckoutpayoutcommonhelpersrandom)
-- [\YandexCheckoutPayout\Common\Helpers\RawHeadersParser](#class-yandexcheckoutpayoutcommonhelpersrawheadersparser)
-- [\YandexCheckoutPayout\Common\Helpers\StringObject](#class-yandexcheckoutpayoutcommonhelpersstringobject)
-- [\YandexCheckoutPayout\Common\Helpers\TypeCast](#class-yandexcheckoutpayoutcommonhelperstypecast)
 - [\YandexCheckoutPayout\Model\CurrencyCode](#class-yandexcheckoutpayoutmodelcurrencycode)
 - [\YandexCheckoutPayout\Model\DstAccount](#class-yandexcheckoutpayoutmodeldstaccount)
 - [\YandexCheckoutPayout\Model\FormatType](#class-yandexcheckoutpayoutmodelformattype)
@@ -77,89 +53,11 @@
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>string</em> <strong>$agentId=`''`</strong>, <em>[\YandexCheckoutPayout\Request\Keychain](#class-yandexcheckoutpayoutrequestkeychain)</em> <strong>$keychain=null</strong>, <em>null</em> <strong>$curlConfiguration=null</strong>)</strong> : <em>void</em><br /><em>Client constructor.</em> |
 | public | <strong>createCsr(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string/mixed</em> <strong>$outputDir=`'C:\Intel\OSPanel\domains\payout-sdk-test.local\lib'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>string/string[]</em><br /><em>Создает приватный ключ и запрос на сертификат для Яндекс.Денег. Возвращает подпись</em> |
-| public | <strong>createDeposition(</strong><em>\YandexCheckoutPayout\AbstractDepositionRequest/array</em> <strong>$request</strong>, <em>null</em> <strong>$clientOrderId=null</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)</em><br /><em>Создание выплаты. Метод принимает объект запроса Make|Test DepositionRequest</em> |
-| public | <strong>getBalance()</strong> : <em>mixed/\YandexCheckoutPayout\ResponseObject</em><br /><em>Возвращает баланс</em> |
+| public | <strong>createDeposition(</strong><em>\YandexCheckoutPayout\AbstractDepositionRequest/array</em> <strong>$request</strong>, <em>string/int</em> <strong>$clientOrderId=null</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)</em><br /><em>Создание выплаты. Метод принимает объект запроса Make|Test DepositionRequest</em> |
+| public | <strong>getBalance()</strong> : <em>[\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)</em><br /><em>Возвращает баланс</em> |
 | public | <strong>getSynonymCard(</strong><em>\YandexCheckoutPayout\SynonymCardRequest/array</em> <strong>$request</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseSynonymCard](#class-yandexcheckoutpayoutcommonresponsesynonymcard)</em><br /><em>Возвращает синоним карты Принимает объект запроса SynonymCardRequest</em> |
-| protected | <strong>prepareRequest(</strong><em>\YandexCheckoutPayout\AbstractRequest</em> <strong>$request</strong>)</strong> : <em>bool/false/string</em> |
 
-*This class extends [\YandexCheckoutPayout\Client\CurlClient](#class-yandexcheckoutpayoutclientcurlclient)*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Client\BaseClient
-
-> Class BaseClient
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>getAgentId()</strong> : <em>string</em> |
-| public | <strong>getKeychain()</strong> : <em>[\YandexCheckoutPayout\Request\Keychain](#class-yandexcheckoutpayoutrequestkeychain)</em> |
-| public | <strong>getLogger()</strong> : <em>[\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)\LoggerInterface/null</em> |
-| public | <strong>setAgentId(</strong><em>string</em> <strong>$id</strong>)</strong> : <em>[\YandexCheckoutPayout\Client\BaseClient](#class-yandexcheckoutpayoutclientbaseclient)</em> |
-| public | <strong>setLogger(</strong><em>[\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)\LoggerInterface/null</em> <strong>$logger</strong>)</strong> : <em>void</em> |
-| protected | <strong>prepareJson(</strong><em>mixed</em> <strong>$request</strong>)</strong> : <em>void</em> |
-| protected | <strong>prepareXml(</strong><em>[\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)\AbstractRequest</em> <strong>$request</strong>)</strong> : <em>bool/false/string</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Client\CurlClient
-
-> Class CurlClient
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>null</em> <strong>$curlConfiguration=null</strong>)</strong> : <em>void</em><br /><em>CurlClient constructor.</em> |
-| public | <strong>getCurlConfiguration()</strong> : <em>[\YandexCheckoutPayout\Client\CurlConfiguration](#class-yandexcheckoutpayoutclientcurlconfiguration)</em> |
-| protected | <strong>call(</strong><em>mixed</em> <strong>$path</strong>, <em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$queryParams</strong>, <em>null</em> <strong>$httpBody=null</strong>, <em>array</em> <strong>$headers=array()</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)</em> |
-| protected | <strong>execute(</strong><em>mixed</em> <strong>$path</strong>, <em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$queryParams</strong>, <em>null</em> <strong>$httpBody=null</strong>, <em>array</em> <strong>$headers=array()</strong>)</strong> : <em>mixed/[\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)\ResponseObject</em><br /><em>Выполнение запроса</em> |
-| protected | <strong>getRequestUrl()</strong> : <em>string</em> |
-| protected | <strong>initCurl()</strong> : <em>[\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)\resource</em> |
-| protected | <strong>sendRequest()</strong> : <em>array</em> |
-| protected | <strong>setBody(</strong><em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$httpBody</strong>)</strong> : <em>void</em> |
-| protected | <strong>setCurlOption(</strong><em>mixed</em> <strong>$optionName</strong>, <em>mixed</em> <strong>$optionValue</strong>)</strong> : <em>bool</em> |
-| protected | <strong>setRequestUrl(</strong><em>string</em> <strong>$requestUrl</strong>)</strong> : <em>void</em> |
-
-*This class extends [\YandexCheckoutPayout\Client\BaseClient](#class-yandexcheckoutpayoutclientbaseclient)*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Client\CurlConfiguration
-
-> Class CurlConfiguration
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>getAttempts()</strong> : <em>int</em> |
-| public | <strong>getConnectionTimeout()</strong> : <em>int</em> |
-| public | <strong>getProxy()</strong> : <em>string</em> |
-| public | <strong>getTimeout()</strong> : <em>int</em> |
-| public | <strong>setAttempts(</strong><em>int</em> <strong>$attempts</strong>)</strong> : <em>void</em> |
-| public | <strong>setConnectionTimeout(</strong><em>int</em> <strong>$connectionTimeout</strong>)</strong> : <em>void</em> |
-| public | <strong>setProxy(</strong><em>string</em> <strong>$proxy</strong>)</strong> : <em>void</em> |
-| public | <strong>setTimeout(</strong><em>int</em> <strong>$timeout</strong>)</strong> : <em>void</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\AbstractEnum (abstract)
-
-> Class AbstractEnum
-
-| Visibility | Function |
-|:-----------|:---------|
-| public static | <strong>getEnabledValues()</strong> : <em>string[] Массив разрешённых значений</em><br /><em>Возвращает значения в enum'е значения которых разрешены</em> |
-| public static | <strong>getValidValues()</strong> : <em>array Массив значений в перечислении</em><br /><em>Возвращает все значения в enum'e</em> |
-| public static | <strong>valueExists(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>bool True если значение имеется, false если нет</em><br /><em>Проверяет наличие значения в enum'e</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\HttpVerb
-
-> Class HttpVerb
-
-| Visibility | Function |
-|:-----------|:---------|
-
-*This class extends [\YandexCheckoutPayout\Common\AbstractEnum](#class-yandexcheckoutpayoutcommonabstractenum-abstract)*
+*This class extends \YandexCheckoutPayout\Client\CurlClient*
 
 <hr />
 
@@ -174,25 +72,6 @@
 | public | <strong>getCode()</strong> : <em>mixed</em> |
 | public | <strong>getHeaders()</strong> : <em>mixed</em> |
 | public | <strong>getXmlResponse()</strong> : <em>[\YandexCheckoutPayout\Common\ResponseXmlObject](#class-yandexcheckoutpayoutcommonresponsexmlobject)</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\ResponseSynonymCard
-
-> Класс объекта ответа, возвращаемого API при запросе синонима карты
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$body</strong>)</strong> : <em>void</em> |
-| public | <strong>getReason()</strong> : <em>mixed</em> |
-| public | <strong>getSkrCardBin()</strong> : <em>mixed</em> |
-| public | <strong>getSkrCardLast4()</strong> : <em>mixed</em> |
-| public | <strong>getSkrDestinationCardCountryCode()</strong> : <em>mixed</em> |
-| public | <strong>getSkrDestinationCardPanmask()</strong> : <em>mixed</em> |
-| public | <strong>getSkrDestinationCardProductCode()</strong> : <em>mixed</em> |
-| public | <strong>getSkrDestinationCardSynonim()</strong> : <em>mixed</em> |
-| public | <strong>getSkrDestinationCardType()</strong> : <em>mixed</em> |
-| protected | <strong>buildByPropertiesArray(</strong><em>mixed</em> <strong>$properties</strong>)</strong> : <em>void</em> |
 
 <hr />
 
@@ -213,200 +92,21 @@
 
 <hr />
 
-### Class: \YandexCheckoutPayout\Common\Exceptions\ApiConnectionException
+### Class: \YandexCheckoutPayout\Common\ResponseSynonymCard
 
-> Class ApiConnectionException
-
-| Visibility | Function |
-|:-----------|:---------|
-
-*This class extends [\YandexCheckoutPayout\Common\Exceptions\ApiException](#class-yandexcheckoutpayoutcommonexceptionsapiexception)*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\ApiException
-
-> Class ApiException
+> Класс объекта ответа, возвращаемого API при запросе синонима карты
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>int</em> <strong>$code</strong>, <em>array/string[]</em> <strong>$responseHeaders=array()</strong>, <em>mixed</em> <strong>$responseBody=null</strong>)</strong> : <em>void</em><br /><em>Constructor</em> |
-| public | <strong>getResponseBody()</strong> : <em>mixed</em> |
-| public | <strong>getResponseHeaders()</strong> : <em>string[]</em> |
-
-*This class extends \Exception*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\AuthorizeException
-
-> Class AuthorizeException
-
-| Visibility | Function |
-|:-----------|:---------|
-
-*This class extends [\YandexCheckoutPayout\Common\Exceptions\ApiException](#class-yandexcheckoutpayoutcommonexceptionsapiexception)*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\EmptyPropertyValueException
-
-> Class EmptyPropertyValueException
-
-| Visibility | Function |
-|:-----------|:---------|
-
-*This class extends [\YandexCheckoutPayout\Common\Exceptions\InvalidPropertyException](#class-yandexcheckoutpayoutcommonexceptionsinvalidpropertyexception)*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\ExtensionNotFoundException
-
-> Class ExtensionNotFoundException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$name</strong>, <em>int</em> <strong>$code</strong>)</strong> : <em>void</em><br /><em>Constructor</em> |
-
-*This class extends \Exception*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\InvalidPropertyException
-
-> Class InvalidPropertyException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>int</em> <strong>$code</strong>, <em>string</em> <strong>$property=`''`</strong>)</strong> : <em>void</em><br /><em>InvalidValueException constructor.</em> |
-| public | <strong>getProperty()</strong> : <em>string</em> |
-
-*This class extends \InvalidArgumentException*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueException
-
-> Class InvalidPropertyValueException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>int</em> <strong>$code</strong>, <em>string</em> <strong>$property=`''`</strong>, <em>mixed</em> <strong>$value=null</strong>)</strong> : <em>void</em><br /><em>InvalidPropertyValueTypeException constructor.</em> |
-| public | <strong>getValue()</strong> : <em>mixed</em> |
-
-*This class extends [\YandexCheckoutPayout\Common\Exceptions\InvalidPropertyException](#class-yandexcheckoutpayoutcommonexceptionsinvalidpropertyexception)*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException
-
-> Class InvalidPropertyValueTypeException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>int</em> <strong>$code</strong>, <em>string</em> <strong>$property=`''`</strong>, <em>mixed</em> <strong>$value=null</strong>)</strong> : <em>void</em><br /><em>InvalidPropertyValueTypeException constructor.</em> |
-| public | <strong>getType()</strong> : <em>string</em> |
-
-*This class extends [\YandexCheckoutPayout\Common\Exceptions\InvalidPropertyException](#class-yandexcheckoutpayoutcommonexceptionsinvalidpropertyexception)*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\InvalidRequestException
-
-> Class InvalidRequestException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>\YandexCheckoutPayout\Common\Exceptions\AbstractRequest/string</em> <strong>$error</strong>, <em>int</em> <strong>$code</strong>, <em>null</em> <strong>$previous=null</strong>)</strong> : <em>void</em><br /><em>InvalidRequestException constructor.</em> |
-| public | <strong>getRequestObject()</strong> : <em>\YandexCheckoutPayout\Common\Exceptions\AbstractRequest/null</em> |
-
-*This class extends \RuntimeException*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\JsonException
-
-> Class JsonException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>mixed</em> <strong>$code</strong>, <em>mixed</em> <strong>$previous=null</strong>)</strong> : <em>void</em> |
-
-*This class extends \UnexpectedValueException*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\NotFoundException
-
-> Class NotFoundException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>array</em> <strong>$responseHeaders=array()</strong>, <em>mixed</em> <strong>$responseBody=null</strong>)</strong> : <em>void</em> |
-
-*This class extends [\YandexCheckoutPayout\Common\Exceptions\ApiException](#class-yandexcheckoutpayoutcommonexceptionsapiexception)*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\OpenSSLException
-
-> Class OpenSSLException
-
-| Visibility | Function |
-|:-----------|:---------|
-
-*This class extends \Exception*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\TooManyRequestsException
-
-> Class TooManyRequestsException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>array</em> <strong>$responseHeaders=array()</strong>, <em>mixed</em> <strong>$responseBody=null</strong>)</strong> : <em>void</em> |
-
-*This class extends [\YandexCheckoutPayout\Common\Exceptions\ApiException](#class-yandexcheckoutpayoutcommonexceptionsapiexception)*
-
-*This class implements \Throwable*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Exceptions\XmlException
-
-> Class XmlException
-
-| Visibility | Function |
-|:-----------|:---------|
-
-*This class extends \Exception*
-
-*This class implements \Throwable*
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$body</strong>)</strong> : <em>void</em> |
+| public | <strong>getReason()</strong> : <em>string</em> |
+| public | <strong>getSkrCardBin()</strong> : <em>string</em> |
+| public | <strong>getSkrCardLast4()</strong> : <em>string</em> |
+| public | <strong>getSkrDestinationCardCountryCode()</strong> : <em>string</em> |
+| public | <strong>getSkrDestinationCardPanmask()</strong> : <em>string</em> |
+| public | <strong>getSkrDestinationCardProductCode()</strong> : <em>string</em> |
+| public | <strong>getSkrDestinationCardSynonim()</strong> : <em>string</em> |
+| public | <strong>getSkrDestinationCardType()</strong> : <em>string</em> |
 
 <hr />
 
@@ -431,8 +131,6 @@
 | public | <strong>getConfig()</strong> : <em>array</em> |
 | public | <strong>setConfig(</strong><em>mixed</em> <strong>$config</strong>)</strong> : <em>void</em> |
 | public | <strong>validateOrganization(</strong><em>\YandexCheckoutPayout\Common\Helpers\Organization</em> <strong>$organizationInfo</strong>)</strong> : <em>bool</em> |
-| protected | <strong>saveFile(</strong><em>mixed</em> <strong>$fileName</strong>, <em>mixed</em> <strong>$content</strong>)</strong> : <em>void</em> |
-
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Helpers\OpenSSL
@@ -446,68 +144,6 @@
 
 <hr />
 
-### Class: \YandexCheckoutPayout\Common\Helpers\Parser
-
-> Class Parser
-
-| Visibility | Function |
-|:-----------|:---------|
-| public static | <strong>parseDateToArray(</strong><em>mixed</em> <strong>$date</strong>)</strong> : <em>array</em> |
-| public static | <strong>parseDateToIssueDate(</strong><em>mixed</em> <strong>$date</strong>)</strong> : <em>[\YandexCheckoutPayout\Model\IssueDate](#class-yandexcheckoutpayoutmodelissuedate)</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Helpers\Random
-
-> Class Random
-
-| Visibility | Function |
-|:-----------|:---------|
-| public static | <strong>bool()</strong> : <em>bool Либо true либо false, одно из двух</em><br /><em>Возвращает рандомное буллево значение</em> |
-| public static | <strong>bytes(</strong><em>int</em> <strong>$length</strong>, <em>bool</em> <strong>$useBest=true</strong>)</strong> : <em>string Строка, состоящая из рандомных символов</em><br /><em>Возвращает рандомную последовательность байт</em> |
-| public static | <strong>float(</strong><em>float/null</em> <strong>$min=null</strong>, <em>float/null</em> <strong>$max=null</strong>, <em>bool</em> <strong>$useBest=true</strong>)</strong> : <em>float Рандомное число с плавающей точкой</em><br /><em>Возвращает рандомное число с плавающей точкой. По умолчанию возвращает значение в промежутке от нуля до едениы.</em> |
-| public static | <strong>hex(</strong><em>int</em> <strong>$length</strong>, <em>bool</em> <strong>$useBest=true</strong>)</strong> : <em>string Строка, состоящая из рандомных символов</em><br /><em>Возвращает строку, состоящую из символов '0123456789abcdef'</em> |
-| public static | <strong>int(</strong><em>int/null</em> <strong>$min=null</strong>, <em>int/null</em> <strong>$max=null</strong>, <em>bool</em> <strong>$useBest=true</strong>)</strong> : <em>int Рандомное целое число</em><br /><em>Возвращает рандомное целое число. По умолчанию возвращает число от нуля до PHP_INT_MAX.</em> |
-| public static | <strong>str(</strong><em>int</em> <strong>$length</strong>, <em>int/null</em> <strong>$maxLength=null</strong>, <em>string/array/null</em> <strong>$characters=null</strong>, <em>bool</em> <strong>$useBest=true</strong>)</strong> : <em>string Строка, состоящая из рандомных символов</em><br /><em>Возвращает строку из рандомных символов</em> |
-| public static | <strong>value(</strong><em>array</em> <strong>$values</strong>, <em>bool</em> <strong>$useBest=true</strong>)</strong> : <em>mixed Случайное значение из переданного массива</em><br /><em>Возвращает рандомное значение из переданного массива</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Helpers\RawHeadersParser
-
-> Class RawHeadersParser
-
-| Visibility | Function |
-|:-----------|:---------|
-| public static | <strong>parse(</strong><em>mixed</em> <strong>$rawHeaders</strong>)</strong> : <em>void</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Helpers\StringObject
-
-> Класс объекта, кастящегося в строку, используется только в тестах
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>StringObject constructor.</em> |
-| public | <strong>__toString()</strong> : <em>string Строковое представление объекта</em><br /><em>Возвращает строковое значение текущего объекта</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Helpers\TypeCast
-
-> Класс хэлпер для преобразования типов значений
-
-| Visibility | Function |
-|:-----------|:---------|
-| public static | <strong>canCastToBoolean(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>bool True если значение качтится в bool, false если нет</em><br /><em>Проверяет можно ли преобразовать переданное значение в буллево значение</em> |
-| public static | <strong>canCastToDateTime(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>bool True если значение можно преобразовать в объект даты, false если нет</em><br /><em>Проверяет, можно ли преобразовать переданное значение в объект даты-времени</em> |
-| public static | <strong>canCastToEnumString(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>bool True если значение преобразовать в строку можно, false если нет</em><br /><em>Проверяет можно ли преобразовать переданное значение в строку из перечисления</em> |
-| public static | <strong>canCastToString(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>bool True если значение преобразовать в строку можно, false если нет</em><br /><em>Проверяет может ли переданное значение быть преобразовано в строку</em> |
-| public static | <strong>castToDateTime(</strong><em>string/int/\YandexCheckoutPayout\Common\Helpers\DateTime</em> <strong>$value</strong>)</strong> : <em>\YandexCheckoutPayout\Common\Helpers\DateTime/null Объект типа \DateTime или null если при парсинг даты не удался</em><br /><em>Преобразует переданне значение в объект типа \DateTime</em> |
-
-<hr />
-
 ### Class: \YandexCheckoutPayout\Model\CurrencyCode
 
 > CurrencyCode - Код валюты перевода
@@ -515,7 +151,7 @@
 | Visibility | Function |
 |:-----------|:---------|
 
-*This class extends [\YandexCheckoutPayout\Common\AbstractEnum](#class-yandexcheckoutpayoutcommonabstractenum-abstract)*
+*This class extends \YandexCheckoutPayout\Common\AbstractEnum*
 
 <hr />
 
@@ -531,7 +167,7 @@
 | Visibility | Function |
 |:-----------|:---------|
 
-*This class extends [\YandexCheckoutPayout\Common\AbstractEnum](#class-yandexcheckoutpayoutcommonabstractenum-abstract)*
+*This class extends \YandexCheckoutPayout\Common\AbstractEnum*
 
 <hr />
 
@@ -539,10 +175,15 @@
 
 > FormatType - формат запроса
 
+|Значения|
+|-----|
+|JSON | 
+|XML  |
+
 | Visibility | Function |
 |:-----------|:---------|
 
-*This class extends [\YandexCheckoutPayout\Common\AbstractEnum](#class-yandexcheckoutpayoutcommonabstractenum-abstract)*
+*This class extends \YandexCheckoutPayout\Common\AbstractEnum*
 
 <hr />
 
@@ -573,8 +214,8 @@
 <?php
     $organization = new Organization();
     $organization->setEmailAddress('predpriyatie@yandex.ru')
-              ->setOrganizationName('OOO Predpriyatie')
-              ->setCommonName('/business/predpriyatie');
+                 ->setOrganizationName('OOO Predpriyatie')
+                 ->setCommonName('/business/predpriyatie');
     $signature = $client->createCsr($organization, 'path/to/output/dir', 'password_for_private_key');
 ```
 
@@ -619,20 +260,20 @@
 <?php
     $recipient = new BankAccountRecipient();
     $recipient->setBankCity('bank city')
-    ->setBankName('bank name')
-    ->setBankBIK('999999999')
-    ->setPaymentPurpose('payment purpose 74')
-    ->setBankCorAccount('11111111111111111111')
-    ->setPofOfferAccepted(true)
-    ->setPdrDocIssueDate('05.05.2019')
-    ->setCustAccount('11111111111111111111')
-    ->setPdrMiddleName('Владимирович')
-    ->setPdrLastName('Владимиров')
-    ->setPdrFirstName('Владимир')
-    ->setPdrBirthDate('05.05.1990')
-    ->setPdrAddress('пос. Большие Васюки, ул. Комиссара Козявкина, д. 4')
-    ->setDocNumber('4002109067')
-    ->setSmsPhoneNumber('79653457676');
+              ->setBankName('bank name')
+              ->setBankBIK('999999999')
+              ->setPaymentPurpose('payment purpose 74')
+              ->setBankCorAccount('11111111111111111111')
+              ->setPofOfferAccepted(true)
+              ->setPdrDocIssueDate('05.05.2019')
+              ->setCustAccount('11111111111111111111')
+              ->setPdrMiddleName('Владимирович')
+              ->setPdrLastName('Владимиров')
+              ->setPdrFirstName('Владимир')
+              ->setPdrBirthDate('05.05.1990')
+              ->setPdrAddress('пос. Большие Васюки, ул. Комиссара Козявкина, д. 4')
+              ->setDocNumber('4002109067')
+              ->setSmsPhoneNumber('79653457676');
     
     $depositionRequest = new MakeDepositionRequest();
     $depositionRequest->setPaymentParams($recipient);
@@ -665,18 +306,18 @@
 ###### Example
 ```php
 <?php
-    $recipient = new BankCardRecipient();
-    $recipient->setPdrLastName('Иванов')
-     ->setPdrFirstName('Иван')
-     ->setPdrMiddleName('Иванович')
-     ->setDocNumber('1234567890')
-     ->setPofOfferAccepted(true)
-     ->setPdrDocIssueDate('01.02.2018')
-     ->setSmsPhoneNumber('79999999999')
-     ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
-    
-    $depositionRequest = new MakeDepositionRequest();
-    $depositionRequest->setPaymentParams($recipient);
+     $recipient = new BankCardRecipient();
+     $recipient->setPdrLastName('Иванов')
+               ->setPdrFirstName('Иван')
+               ->setPdrMiddleName('Иванович')
+               ->setDocNumber('1234567890')
+               ->setPofOfferAccepted(true)
+               ->setPdrDocIssueDate('01.02.2018')
+               ->setSmsPhoneNumber('79999999999')
+               ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
+
+     $depositionRequest = new MakeDepositionRequest();
+     $depositionRequest->setPaymentParams($recipient);
 ```
 
 | Visibility | Function |
@@ -703,11 +344,11 @@
 ###### Example
 ```php
 <?php
-    $recipient = new BaseRecipient();
-    $recipient->setPofOfferAccepted(true);
-    
-    $depositionRequest = new MakeDepositionRequest();
-    $depositionRequest->setPaymentParams($recipient);
+ $recipient = new BaseRecipient();
+ $recipient->setPofOfferAccepted(true);
+
+ $depositionRequest = new MakeDepositionRequest();
+ $depositionRequest->setPaymentParams($recipient);
 ```
 
 | Visibility | Function |
@@ -741,9 +382,9 @@
 ###### Example
 ```php
 <?php
-    $notification = new ErrorDepositionNotification($notificationBody);
-    $error = $notification->getError();
-    $response = $notification->createResponse(0, $keychain);
+ $notification = new ErrorDepositionNotification($notificationBody);
+ $error = $notification->getError();
+ $response = $notification->createResponse(0, $keychain);
 ```
 
 | Visibility | Function |
@@ -787,6 +428,17 @@
 
 > Class AbstractDepositionRequest
 
+###### Example
+```php
+<?php
+    $depositionRequest = new MakeDepositionRequest();
+    $depositionRequest->setDstAccount('41001614575714')
+                      ->setAmount(100)
+                      ->setCurrency(CurrencyCode::RUB)
+                      ->setContract('test')
+                      ->setPaymentParams($params);
+```
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>getAmount()</strong> : <em>mixed</em> |
@@ -826,7 +478,6 @@
 | public | <strong>setRequestDT(</strong><em>string</em> <strong>$requestDT</strong>)</strong> : <em>\YandexCheckoutPayout\Request\$this</em><br /><em>Устанавливает время запроса</em> |
 | public | <strong>setRequestName(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>\YandexCheckoutPayout\Request\$this</em> |
 | public | <strong>abstract validate()</strong> : <em>bool True если запрос валиден, false если нет</em><br /><em>Валидирует текущий запрос, проверяет все ли нужные свойства установлены</em> |
-| protected | <strong>setValidationError(</strong><em>string</em> <strong>$value</strong>)</strong> : <em>void</em><br /><em>Устанавливает ошибку валидации</em> |
 
 <hr />
 
@@ -863,37 +514,6 @@
 
 > Класс для создания запроса на выплату
 
-###### Example
-```php
-<?php
-    //Выплата на кошелек
-    $depositionRequest = new MakeDepositionRequest();
-    $depositionRequest->setDstAccount('41001614575714')
-            ->setAmount(100)
-            ->setCurrency(CurrencyCode::RUB)
-            ->setContract('test');
-    $client->createDeposition($depositionRequest);
-    
-    //Выплата на карту
-    $recipient = new BankCardRecipient();
-    $recipient->setPdrLastName('Иванов')
-    ->setPdrFirstName('Иван')
-    ->setPdrMiddleName('Иванович')
-    ->setDocNumber('1234567890')
-    ->setPofOfferAccepted(true)
-    ->setPdrDocIssueDate('01.02.2018')
-    ->setSmsPhoneNumber('79999999999')
-    ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
-    
-    $depositionRequest = new MakeDepositionRequest();
-    $depositionRequest->setDstAccount(DstAccount::BANK_CARD)
-            ->setAmount(100)
-            ->setCurrency(CurrencyCode::RUB)
-            ->setContract('test')
-            ->setPaymentParams($recipient);
-    $client->createDeposition($depositionRequest);
-```
-
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>getBuilder(</strong><em>null/string/int</em> <strong>$clientOrderId=null</strong>)</strong> : <em>[\YandexCheckoutPayout\Request\Builders\MakeDepositionRequestBuilder](#class-yandexcheckoutpayoutrequestbuildersmakedepositionrequestbuilder)</em> |
@@ -910,11 +530,11 @@
 ###### Example
 ```php
 <?php
-    $synonymRequest = new SynonymCardRequest();
-    $synonymRequest->setSkrDestinationCardNumber('5555555555554444')
-         ->setSkrErrorUrl('http://money.yandex.ru')
-         ->setSkrSuccessUrl('http://money.yandex.ru');
-    $client->getSynonymCard($synonymRequest);
+     $synonymRequest = new SynonymCardRequest();
+     $synonymRequest->setSkrDestinationCardNumber('5555555555554444')
+                    ->setSkrErrorUrl('http://money.yandex.ru')
+                    ->setSkrSuccessUrl('http://money.yandex.ru');
+     $client->getSynonymCard($synonymRequest);
 ```
 
 | Visibility | Function |
@@ -936,37 +556,6 @@
 ### Class: \YandexCheckoutPayout\Request\TestDepositionRequest
 
 > Класс для создания запроса на проверку возможности выплаты
-
-###### Example
-```php
-<?php
-    //Выплата на кошелек
-    $depositionRequest = new TestDepositionRequest();
-    $depositionRequest->setDstAccount('41001614575714')
-            ->setAmount(100)
-            ->setCurrency(CurrencyCode::RUB)
-            ->setContract('test');
-    $client->createDeposition($depositionRequest);
-    
-    //Выплата на карту
-    $recipient = new BankCardRecipient();
-    $recipient->setPdrLastName('Иванов')
-    ->setPdrFirstName('Иван')
-    ->setPdrMiddleName('Иванович')
-    ->setDocNumber('1234567890')
-    ->setPofOfferAccepted(true)
-    ->setPdrDocIssueDate('01.02.2018')
-    ->setSmsPhoneNumber('79999999999')
-    ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
-    
-    $depositionRequest = new TestDepositionRequest();
-    $depositionRequest->setDstAccount(DstAccount::BANK_CARD)
-            ->setAmount(100)
-            ->setCurrency(CurrencyCode::RUB)
-            ->setContract('test')
-            ->setPaymentParams($recipient);
-    $client->createDeposition($depositionRequest);
-```
 
 | Visibility | Function |
 |:-----------|:---------|
