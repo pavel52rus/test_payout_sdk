@@ -1065,10 +1065,3 @@
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\SynonymCardRequest](#class-yandexcheckoutpayoutrequestsynonymcardrequest)</em> <strong>$request</strong>)</strong> : <em>array</em> |
-
-
-Fatal error: Uncaught TypeError: Return value of "PHPDocsMD\Console\PHPDocsMDCommand::execute()" must be of the type int, NULL returned. in C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Command\Command.php:258
-Stack trace:
-#0 C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Application.php(912): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#1 C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Application.php(264): Symfony\Component\Console\Application->doRunCommand(Object(PHPDocsMD\Console\PHPDocsMDCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#2 C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Application.php(140): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutpu in C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Command\Command.php on line 258
