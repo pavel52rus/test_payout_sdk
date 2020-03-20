@@ -68,10 +68,10 @@
 ###### Example
 ```php
 <?php
- $keychain = new Keychain('publicCert.cer', 'privateCert.pem', 'password');
- $client = new Client('000000', $keychain);
- $response = $client->createDeposition($request);
- $response->getXmlResponse()->getStatus();
+    $keychain = new Keychain('publicCert.cer', 'privateCert.pem', 'password');
+    $client = new Client('000000', $keychain);
+    $response = $client->createDeposition($request);
+    $response->getXmlResponse()->getStatus();
 ```
 
 | Visibility | Function |
@@ -712,8 +712,8 @@
 ###### Example
 ```php
 <?php
- $response = new ErrorDepositionNotificationResponse($clientOrderId, $status);
- return $response->build($keychain);
+    $response = new ErrorDepositionNotificationResponse($clientOrderId, $status);
+    return $response->build($keychain);
 ```
 
 | Visibility | Function |
