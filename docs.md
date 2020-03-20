@@ -368,7 +368,7 @@
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string</em> <strong>$output=`'C:\Users\pamolodovskii\Desktop\Новая папка\payout\lib\Common\Helpers'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string</em> <strong>$output=`'\path\to\output'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>void</em> |
 | public | <strong>generate()</strong> : <em>string/string[]</em> |
 | public | <strong>getConfig()</strong> : <em>array</em> |
 | public | <strong>setConfig(</strong><em>mixed</em> <strong>$config</strong>)</strong> : <em>void</em> |
