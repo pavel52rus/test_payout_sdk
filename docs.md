@@ -687,9 +687,9 @@
 ###### Example
 ```php
 <?php
- $notification = new ErrorDepositionNotification($notificationBody);
- $error = $notification->getError();
- $response = $notification->createResponse(0, $keychain);
+    $notification = new ErrorDepositionNotification($notificationBody);
+    $error = $notification->getError();
+    $response = $notification->createResponse(0, $keychain);
 ```
 
 | Visibility | Function |
