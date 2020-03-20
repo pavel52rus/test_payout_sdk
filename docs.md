@@ -837,7 +837,6 @@
                 ->setCurrency(CurrencyCode::RUB)
                 ->setContract('test')
                 ->setPaymentParams($recipient);
-
      $client->createDeposition($depositionRequest);
 ```
 
@@ -912,7 +911,6 @@
                 ->setCurrency(CurrencyCode::RUB)
                 ->setContract('test')
                 ->setPaymentParams($recipient);
-
      $client->createDeposition($depositionRequest);
 ```
 
