@@ -63,10 +63,21 @@
 
 ### Class: \YandexCheckoutPayout\Client
 
+> Класс клиента API
+
+###### Example
+```php
+<?php
+ $keychain = new Keychain('publicCert.cer', 'privateCert.pem', 'password');
+ $client = new Client('000000', $keychain);
+ $response = $client->createDeposition($request);
+ $response->getXmlResponse()->getStatus();
+```
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>string</em> <strong>$agentId=`''`</strong>, <em>[\YandexCheckoutPayout\Request\Keychain](#class-yandexcheckoutpayoutrequestkeychain)</em> <strong>$keychain=null</strong>, <em>null</em> <strong>$curlConfiguration=null</strong>)</strong> : <em>void</em><br /><em>Client constructor.</em> |
-| public | <strong>createCsr(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string/mixed</em> <strong>$outputDir=`'path/to/output'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>string/string[]</em><br /><em>Создает приватный ключ и запрос на сертификат для Яндекс.Денег. Возвращает подпись</em> |
+| public | <strong>createCsr(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string/mixed</em> <strong>$outputDir=`'C:\Users\pamolodovskii\Desktop\Новая папка\payout\lib'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>string/string[]</em><br /><em>Создает приватный ключ и запрос на сертификат для Яндекс.Денег. Возвращает подпись</em> |
 | public | <strong>createDeposition(</strong><em>\YandexCheckoutPayout\AbstractDepositionRequest/array</em> <strong>$request</strong>, <em>null</em> <strong>$clientOrderId=null</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)</em><br /><em>Создание выплаты. Метод принимает объект запроса Make|Test DepositionRequest</em> |
 | public | <strong>getBalance()</strong> : <em>mixed/\YandexCheckoutPayout\ResponseObject</em><br /><em>Возвращает баланс</em> |
 | public | <strong>getSynonymCard(</strong><em>\YandexCheckoutPayout\SynonymCardRequest/array</em> <strong>$request</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseSynonymCard](#class-yandexcheckoutpayoutcommonresponsesynonymcard)</em><br /><em>Возвращает синоним карты Принимает объект запроса SynonymCardRequest</em> |
@@ -77,6 +88,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Client\BaseClient
+
+> Class BaseClient
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -91,6 +104,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Client\CurlClient
+
+> Class CurlClient
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -111,6 +126,8 @@
 
 ### Class: \YandexCheckoutPayout\Client\CurlConfiguration
 
+> Class CurlConfiguration
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>getAttempts()</strong> : <em>int</em> |
@@ -126,6 +143,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\AbstractEnum (abstract)
 
+> Class AbstractEnum
+
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>getEnabledValues()</strong> : <em>string[] Массив разрешённых значений</em><br /><em>Возвращает значения в enum'е значения которых разрешены</em> |
@@ -136,6 +155,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\HttpVerb
 
+> Class HttpVerb
+
 | Visibility | Function |
 |:-----------|:---------|
 
@@ -144,6 +165,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\ResponseObject
+
+> Class ResponseObject
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -156,6 +179,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\ResponseSynonymCard
+
+> Class ResponseSynonymCard
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -174,6 +199,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\ResponseXmlObject
 
+> Class ResponseXmlObject
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>mixed</em> <strong>$xml</strong>)</strong> : <em>void</em><br /><em>ResponseXmlObject constructor.</em> |
@@ -189,6 +216,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\ApiConnectionException
 
+> Class ApiConnectionException
+
 | Visibility | Function |
 |:-----------|:---------|
 
@@ -199,6 +228,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\ApiException
+
+> Class ApiException
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -214,6 +245,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\AuthorizeException
 
+> Class AuthorizeException
+
 | Visibility | Function |
 |:-----------|:---------|
 
@@ -224,6 +257,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\EmptyPropertyValueException
+
+> Class EmptyPropertyValueException
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -236,6 +271,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\ExtensionNotFoundException
 
+> Class ExtensionNotFoundException
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>string</em> <strong>$name</strong>, <em>int</em> <strong>$code</strong>)</strong> : <em>void</em><br /><em>Constructor</em> |
@@ -247,6 +284,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\InvalidPropertyException
+
+> Class InvalidPropertyException
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -261,6 +300,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueException
 
+> Class InvalidPropertyValueException
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>int</em> <strong>$code</strong>, <em>string</em> <strong>$property=`''`</strong>, <em>mixed</em> <strong>$value=null</strong>)</strong> : <em>void</em><br /><em>InvalidPropertyValueTypeException constructor.</em> |
@@ -273,6 +314,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException
+
+> Class InvalidPropertyValueTypeException
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -287,6 +330,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\InvalidRequestException
 
+> Class InvalidRequestException
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>\YandexCheckoutPayout\Common\Exceptions\AbstractRequest/string</em> <strong>$error</strong>, <em>int</em> <strong>$code</strong>, <em>null</em> <strong>$previous=null</strong>)</strong> : <em>void</em><br /><em>InvalidRequestException constructor.</em> |
@@ -300,6 +345,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\JsonException
 
+> Class JsonException
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>mixed</em> <strong>$code</strong>, <em>mixed</em> <strong>$previous=null</strong>)</strong> : <em>void</em> |
@@ -311,6 +358,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\NotFoundException
+
+> Class NotFoundException
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -324,6 +373,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\OpenSSLException
 
+> Class OpenSSLException
+
 | Visibility | Function |
 |:-----------|:---------|
 
@@ -334,6 +385,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\TooManyRequestsException
+
+> Class TooManyRequestsException
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -347,6 +400,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Exceptions\XmlException
 
+> Class XmlException
+
 | Visibility | Function |
 |:-----------|:---------|
 
@@ -358,6 +413,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Helpers\ErrorConverter (abstract)
 
+> Класс для конвертации ошибок в человекопонятный вид
+
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>getErrorMessageByCode(</strong><em>mixed</em> <strong>$code</strong>)</strong> : <em>mixed</em> |
@@ -366,9 +423,11 @@
 
 ### Class: \YandexCheckoutPayout\Common\Helpers\GeneratorCsr
 
+> Класс для генерации csr запроса и ключей
+
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string</em> <strong>$output=`'\path\to\output'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string</em> <strong>$output=`'C:\Users\pamolodovskii\Desktop\Новая папка\payout\lib\Common\Helpers'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>void</em> |
 | public | <strong>generate()</strong> : <em>string/string[]</em> |
 | public | <strong>getConfig()</strong> : <em>array</em> |
 | public | <strong>setConfig(</strong><em>mixed</em> <strong>$config</strong>)</strong> : <em>void</em> |
@@ -379,6 +438,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Helpers\OpenSSL
 
+> Класс используется для упаковки данных в PKCS#7 и их распаковки.
+
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>decryptPKCS7(</strong><em>mixed</em> <strong>$data</strong>, <em>mixed</em> <strong>$CAcert=null</strong>)</strong> : <em>string</em><br /><em>Проверяет подпись и возвращает содержимое пакета</em> |
@@ -388,6 +449,8 @@
 
 ### Class: \YandexCheckoutPayout\Common\Helpers\Parser
 
+> Class Parser
+
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>parseDateToArray(</strong><em>mixed</em> <strong>$date</strong>)</strong> : <em>array</em> |
@@ -396,6 +459,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Helpers\Random
+
+> Class Random
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -410,6 +475,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Common\Helpers\RawHeadersParser
+
+> Class RawHeadersParser
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -444,6 +511,8 @@
 
 ### Class: \YandexCheckoutPayout\Model\CurrencyCode
 
+> Class CurrencyCode
+
 | Visibility | Function |
 |:-----------|:---------|
 
@@ -452,6 +521,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Model\DstAccount
+
+> Class DstAccount
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -462,6 +533,8 @@
 
 ### Class: \YandexCheckoutPayout\Model\FormatType
 
+> Class FormatType
+
 | Visibility | Function |
 |:-----------|:---------|
 
@@ -470,6 +543,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Model\IssueDate
+
+> Class IssueDate
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -486,6 +561,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Model\Organization
+
+> Class Organization
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -511,6 +588,8 @@
 
 ### Class: \YandexCheckoutPayout\Model\RequestDateTime
 
+> Class RequestDateTime
+
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>getDateTime()</strong> : <em>mixed</em> |
@@ -518,6 +597,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Model\RequestMode
+
+> Class RequestMode
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -527,6 +608,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Model\Recipient\BankAccountRecipient
+
+> Class BankAccountRecipient
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -550,6 +633,8 @@
 
 ### Class: \YandexCheckoutPayout\Model\Recipient\BankCardRecipient
 
+> Class BankCardRecipient
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>getCpsYmAccount()</strong> : <em>mixed</em> |
@@ -568,6 +653,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Model\Recipient\BaseRecipient
+
+> Class BaseRecipient
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -595,6 +682,16 @@
 
 ### Class: \YandexCheckoutPayout\Notification\ErrorDepositionNotification
 
+> Класс для обработки входящих уведомлений
+
+###### Example
+```php
+<?php
+ $notification = new ErrorDepositionNotification($notificationBody);
+ $error = $notification->getError();
+ $response = $notification->createResponse(0, $keychain);
+```
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>mixed</em> <strong>$body</strong>)</strong> : <em>void</em><br /><em>ErrorDepositionNotification constructor.</em> |
@@ -610,10 +707,19 @@
 
 ### Class: \YandexCheckoutPayout\Notification\ErrorDepositionNotificationResponse
 
+> Класс для создания ответа на errorDepositionNotification
+
+###### Example
+```php
+<?php
+ $response = new ErrorDepositionNotificationResponse($clientOrderId, $status);
+ return $response->build($keychain);
+```
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>mixed</em> <strong>$clientOrderId</strong>, <em>mixed</em> <strong>$status</strong>, <em>string</em> <strong>$processedDT=`''`</strong>)</strong> : <em>void</em> |
-| public | <strong>build(</strong><em>[\YandexCheckoutPayout\Request\Keychain](#class-yandexcheckoutpayoutrequestkeychain)</em> <strong>$keychain</strong>)</strong> : <em>string</em> |
+| public | <strong>build(</strong><em>[\YandexCheckoutPayout\Request\Keychain](#class-yandexcheckoutpayoutrequestkeychain)</em> <strong>$keychain</strong>)</strong> : <em>string</em><br /><em>Строит ответ на запрос, упаковывает его в PKCS#7 пакет.</em> |
 | public | <strong>getClientOrderId()</strong> : <em>string</em> |
 | public | <strong>getProcessedDT()</strong> : <em>string</em> |
 | public | <strong>getStatus()</strong> : <em>string</em> |
@@ -624,6 +730,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Request\AbstractDepositionRequest (abstract)
+
+> Class AbstractDepositionRequest
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -647,6 +755,8 @@
 
 ### Class: \YandexCheckoutPayout\Request\AbstractRequest (abstract)
 
+> Class AbstractRequest
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>mixed</em> <strong>$clientOrderId=null</strong>)</strong> : <em>void</em> |
@@ -668,6 +778,8 @@
 
 ### Class: \YandexCheckoutPayout\Request\BalanceRequest
 
+> Класс для создания запроса баланса
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>getSerializer()</strong> : <em>mixed</em> |
@@ -678,6 +790,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Request\Keychain
+
+> Class Keychain
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -693,6 +807,40 @@
 
 ### Class: \YandexCheckoutPayout\Request\MakeDepositionRequest
 
+> Класс для создания запроса на выплату
+
+###### Example
+```php
+<?php
+     //Выплата на кошелек
+     $depositionRequest = new MakeDepositionRequest();
+     $depositionRequest->setDstAccount('41001614575714')
+                ->setAmount(100)
+                ->setCurrency(CurrencyCode::RUB)
+                ->setContract('test');
+     $client->createDeposition($depositionRequest);
+
+     //Выплата на карту
+     $recipient = new BankCardRecipient();
+     $recipient->setPdrLastName('Иванов')
+        ->setPdrFirstName('Иван')
+        ->setPdrMiddleName('Иванович')
+        ->setDocNumber('1234567890')
+        ->setPofOfferAccepted(true)
+        ->setPdrDocIssueDate('01.02.2018')
+        ->setSmsPhoneNumber('79999999999')
+        ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
+
+     $depositionRequest = new MakeDepositionRequest();
+     $depositionRequest->setDstAccount(DstAccount::BANK_CARD)
+                ->setAmount(100)
+                ->setCurrency(CurrencyCode::RUB)
+                ->setContract('test')
+                ->setPaymentParams($recipient);
+
+     $client->createDeposition($depositionRequest);
+```
+
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>getBuilder(</strong><em>mixed</em> <strong>$clientOrderId=null</strong>)</strong> : <em>mixed</em> |
@@ -703,6 +851,18 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Request\SynonymCardRequest
+
+> Класс для создания запроса на получение синонима карты
+
+###### Example
+```php
+<?php
+     $synonymRequest = new SynonymCardRequest();
+     $synonymRequest->setSkrDestinationCardNumber('5555555555554444')
+             ->setSkrErrorUrl('http://money.yandex.ru')
+             ->setSkrSuccessUrl('http://money.yandex.ru');
+     $client->getSynonymCard($synonymRequest);
+```
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -722,6 +882,40 @@
 
 ### Class: \YandexCheckoutPayout\Request\TestDepositionRequest
 
+> Класс для создания запроса на проверку возможности выплаты
+
+###### Example
+```php
+<?php
+     //Выплата на кошелек
+     $depositionRequest = new TestDepositionRequest();
+     $depositionRequest->setDstAccount('41001614575714')
+                ->setAmount(100)
+                ->setCurrency(CurrencyCode::RUB)
+                ->setContract('test');
+     $client->createDeposition($depositionRequest);
+
+     //Выплата на карту
+     $recipient = new BankCardRecipient();
+     $recipient->setPdrLastName('Иванов')
+        ->setPdrFirstName('Иван')
+        ->setPdrMiddleName('Иванович')
+        ->setDocNumber('1234567890')
+        ->setPofOfferAccepted(true)
+        ->setPdrDocIssueDate('01.02.2018')
+        ->setSmsPhoneNumber('79999999999')
+        ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
+
+     $depositionRequest = new TestDepositionRequest();
+     $depositionRequest->setDstAccount(DstAccount::BANK_CARD)
+                ->setAmount(100)
+                ->setCurrency(CurrencyCode::RUB)
+                ->setContract('test')
+                ->setPaymentParams($recipient);
+
+     $client->createDeposition($depositionRequest);
+```
+
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>getBuilder(</strong><em>mixed</em> <strong>$clientOrderId=null</strong>)</strong> : <em>mixed</em> |
@@ -733,6 +927,8 @@
 
 ### Class: \YandexCheckoutPayout\Request\Builders\AbstractRequestBuilder (abstract)
 
+> Class AbstractRequestBuilder
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>build(</strong><em>array</em> <strong>$options=null</strong>)</strong> : <em>AbstractDepositionRequest Инстанс собранного запроса</em><br /><em>Строит запрос, валидирует его и возвращает, если все прошло нормально</em> |
@@ -741,6 +937,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Request\Builders\MakeDepositionRequestBuilder
+
+> Class MakeDepositionRequestBuilder
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -752,6 +950,8 @@
 
 ### Class: \YandexCheckoutPayout\Request\Builders\SynonymCardRequestBuilder
 
+> Class SynonymCardRequestBuilder
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct()</strong> : <em>void</em> |
@@ -761,6 +961,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Request\Builders\TestDepositionRequestBuilder
+
+> Class TestDepositionRequestBuilder
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -772,6 +974,8 @@
 
 ### Class: \YandexCheckoutPayout\Request\Serializers\AbstractRequestSerializer (abstract)
 
+> Class AbstractRequestSerializer
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\AbstractRequest](#class-yandexcheckoutpayoutrequestabstractrequest-abstract)</em> <strong>$request</strong>)</strong> : <em>void</em> |
@@ -779,6 +983,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Request\Serializers\BalanceRequestSerializer
+
+> Class BalanceRequestSerializer
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -788,6 +994,8 @@
 <hr />
 
 ### Class: \YandexCheckoutPayout\Request\Serializers\DepositionRequestSerializer
+
+> Class DepositionRequestSerializer
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -800,6 +1008,15 @@
 
 ### Class: \YandexCheckoutPayout\Request\Serializers\SynonymCardRequestSerializer
 
+> Class SynonymCardRequestSerializer
+
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\SynonymCardRequest](#class-yandexcheckoutpayoutrequestsynonymcardrequest)</em> <strong>$request</strong>)</strong> : <em>void</em> |
+
+
+Fatal error: Uncaught TypeError: Return value of "PHPDocsMD\Console\PHPDocsMDCommand::execute()" must be of the type int, NULL returned. in C:\Users\pamolodovskii\Desktop\Новая папка\payout\vendor\symfony\console\Command\Command.php:258
+Stack trace:
+#0 C:\Users\pamolodovskii\Desktop\Новая папка\payout\vendor\symfony\console\Application.php(912): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 C:\Users\pamolodovskii\Desktop\Новая папка\payout\vendor\symfony\console\Application.php(264): Symfony\Component\Console\Application->doRunCommand(Object(PHPDocsMD\Console\PHPDocsMDCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\Users\pamolodovskii\Desktop\Новая папка\payout\vendor\symfony\console\Application.php(140): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput),  in C:\Users\pamolodovskii\Desktop\Новая папка\payout\vendor\symfony\console\Command\Command.php on line 258
