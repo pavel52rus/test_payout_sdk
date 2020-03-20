@@ -4,13 +4,9 @@
 - [\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)
 - [\YandexCheckoutPayout\Common\ResponseXmlObject](#class-yandexcheckoutpayoutcommonresponsexmlobject)
 - [\YandexCheckoutPayout\Common\ResponseSynonymCard](#class-yandexcheckoutpayoutcommonresponsesynonymcard)
-- [\YandexCheckoutPayout\Common\Helpers\ErrorConverter (abstract)](#class-yandexcheckoutpayoutcommonhelperserrorconverter-abstract)
-- [\YandexCheckoutPayout\Common\Helpers\GeneratorCsr](#class-yandexcheckoutpayoutcommonhelpersgeneratorcsr)
-- [\YandexCheckoutPayout\Common\Helpers\OpenSSL](#class-yandexcheckoutpayoutcommonhelpersopenssl)
 - [\YandexCheckoutPayout\Model\CurrencyCode](#class-yandexcheckoutpayoutmodelcurrencycode)
 - [\YandexCheckoutPayout\Model\DstAccount](#class-yandexcheckoutpayoutmodeldstaccount)
 - [\YandexCheckoutPayout\Model\FormatType](#class-yandexcheckoutpayoutmodelformattype)
-- [\YandexCheckoutPayout\Model\IssueDate](#class-yandexcheckoutpayoutmodelissuedate)
 - [\YandexCheckoutPayout\Model\Organization](#class-yandexcheckoutpayoutmodelorganization)
 - [\YandexCheckoutPayout\Model\RequestDateTime](#class-yandexcheckoutpayoutmodelrequestdatetime)
 - [\YandexCheckoutPayout\Model\Recipient\BankAccountRecipient](#class-yandexcheckoutpayoutmodelrecipientbankaccountrecipient)
@@ -25,15 +21,6 @@
 - [\YandexCheckoutPayout\Request\MakeDepositionRequest](#class-yandexcheckoutpayoutrequestmakedepositionrequest)
 - [\YandexCheckoutPayout\Request\SynonymCardRequest](#class-yandexcheckoutpayoutrequestsynonymcardrequest)
 - [\YandexCheckoutPayout\Request\TestDepositionRequest](#class-yandexcheckoutpayoutrequesttestdepositionrequest)
-- [\YandexCheckoutPayout\Request\Builders\AbstractRequestBuilder (abstract)](#class-yandexcheckoutpayoutrequestbuildersabstractrequestbuilder-abstract)
-- [\YandexCheckoutPayout\Request\Builders\MakeDepositionRequestBuilder](#class-yandexcheckoutpayoutrequestbuildersmakedepositionrequestbuilder)
-- [\YandexCheckoutPayout\Request\Builders\SynonymCardRequestBuilder](#class-yandexcheckoutpayoutrequestbuilderssynonymcardrequestbuilder)
-- [\YandexCheckoutPayout\Request\Builders\TestDepositionRequestBuilder](#class-yandexcheckoutpayoutrequestbuilderstestdepositionrequestbuilder)
-- [\YandexCheckoutPayout\Request\Serializers\AbstractRequestSerializer (abstract)](#class-yandexcheckoutpayoutrequestserializersabstractrequestserializer-abstract)
-- [\YandexCheckoutPayout\Request\Serializers\BalanceRequestSerializer](#class-yandexcheckoutpayoutrequestserializersbalancerequestserializer)
-- [\YandexCheckoutPayout\Request\Serializers\DepositionRequestSerializer](#class-yandexcheckoutpayoutrequestserializersdepositionrequestserializer)
-- [\YandexCheckoutPayout\Request\Serializers\SynonymCardRequestSerializer](#class-yandexcheckoutpayoutrequestserializerssynonymcardrequestserializer)
-
 <hr />
 
 ### Class: \YandexCheckoutPayout\Client
@@ -110,40 +97,6 @@
 
 <hr />
 
-### Class: \YandexCheckoutPayout\Common\Helpers\ErrorConverter (abstract)
-
-> Класс для конвертации ошибок в человекопонятный вид
-
-| Visibility | Function |
-|:-----------|:---------|
-| public static | <strong>getErrorMessageByCode(</strong><em>mixed</em> <strong>$code</strong>)</strong> : <em>mixed</em> |
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Helpers\GeneratorCsr
-
-> Класс для генерации csr запроса и ключей
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string</em> <strong>$output=`'C:\Intel\OSPanel\domains\payout-sdk-test.local\lib\Common\Helpers'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>void</em> |
-| public | <strong>generate()</strong> : <em>string/string[]</em> |
-| public | <strong>getConfig()</strong> : <em>array</em> |
-| public | <strong>setConfig(</strong><em>mixed</em> <strong>$config</strong>)</strong> : <em>void</em> |
-| public | <strong>validateOrganization(</strong><em>\YandexCheckoutPayout\Common\Helpers\Organization</em> <strong>$organizationInfo</strong>)</strong> : <em>bool</em> |
-<hr />
-
-### Class: \YandexCheckoutPayout\Common\Helpers\OpenSSL
-
-> Класс используется для упаковки данных в PKCS#7 и их распаковки.
-
-| Visibility | Function |
-|:-----------|:---------|
-| public static | <strong>decryptPKCS7(</strong><em>mixed</em> <strong>$data</strong>, <em>mixed</em> <strong>$CAcert=null</strong>)</strong> : <em>string</em><br /><em>Проверяет подпись и возвращает содержимое пакета</em> |
-| public static | <strong>encryptPKCS7(</strong><em>mixed</em> <strong>$data</strong>, <em>[\YandexCheckoutPayout\Request\Keychain](#class-yandexcheckoutpayoutrequestkeychain)</em> <strong>$keychain</strong>)</strong> : <em>string</em><br /><em>Подписывает и возвращает данные запакованные в PKCS#7</em> |
-
-<hr />
-
 ### Class: \YandexCheckoutPayout\Model\CurrencyCode
 
 > CurrencyCode - Код валюты перевода
@@ -184,24 +137,6 @@
 |:-----------|:---------|
 
 *This class extends \YandexCheckoutPayout\Common\AbstractEnum*
-
-<hr />
-
-### Class: \YandexCheckoutPayout\Model\IssueDate
-
-> Класс для работы с датой
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$fullDate</strong>, <em>mixed</em> <strong>$year</strong>, <em>mixed</em> <strong>$month</strong>, <em>mixed</em> <strong>$day</strong>)</strong> : <em>void</em> |
-| public | <strong>getDay()</strong> : <em>mixed</em> |
-| public | <strong>getFullDate()</strong> : <em>mixed</em> |
-| public | <strong>getMonth()</strong> : <em>mixed</em> |
-| public | <strong>getYear()</strong> : <em>mixed</em> |
-| public | <strong>setDay(</strong><em>mixed</em> <strong>$day</strong>)</strong> : <em>void</em> |
-| public | <strong>setFullDate(</strong><em>mixed</em> <strong>$fullDate</strong>)</strong> : <em>void</em> |
-| public | <strong>setMonth(</strong><em>mixed</em> <strong>$month</strong>)</strong> : <em>void</em> |
-| public | <strong>setYear(</strong><em>mixed</em> <strong>$year</strong>)</strong> : <em>void</em> |
 
 <hr />
 
