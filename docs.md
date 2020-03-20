@@ -609,7 +609,7 @@
 
 ### Class: \YandexCheckoutPayout\Model\Recipient\BankAccountRecipient
 
-> Class BankAccountRecipient
+> Класс для построения параметров получателя на банковский счет, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -633,7 +633,7 @@
 
 ### Class: \YandexCheckoutPayout\Model\Recipient\BankCardRecipient
 
-> Class BankCardRecipient
+> Класс для построения параметров получателя на банковскую карту, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
 
 | Visibility | Function |
 |:-----------|:---------|
