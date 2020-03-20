@@ -27,9 +27,17 @@
 namespace YandexCheckoutPayout\Request\Builders;
 
 
+use Exception;
+use InvalidArgumentException;
+use Traversable;
 use YandexCheckoutPayout\Common\Exceptions\InvalidRequestException;
 use YandexCheckoutPayout\Request\AbstractDepositionRequest;
 
+/**
+ * Class AbstractRequestBuilder
+ *
+ * @package YandexCheckoutPayout\Request\Builders
+ */
 abstract class AbstractRequestBuilder
 {
     /**
@@ -57,7 +65,7 @@ abstract class AbstractRequestBuilder
             }
         } catch (InvalidRequestException $e) {
             throw $e;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new InvalidRequestException($this->objectRequest, 0, $e);
         }
 
@@ -66,7 +74,7 @@ abstract class AbstractRequestBuilder
 
     /**
      * Устанавливает свойства запроса из массива
-     * @param array|\Traversable $options Массив свойств запроса
+     * @param array|Traversable $options Массив свойств запроса
      *
      * @return AbstractRequestBuilder
      */
@@ -75,8 +83,8 @@ abstract class AbstractRequestBuilder
         if (empty($options)) {
             return $this;
         }
-        if (!is_array($options) && !($options instanceof \Traversable)) {
-            throw new \InvalidArgumentException('Invalid options value in setOptions method');
+        if (!is_array($options) && !($options instanceof Traversable)) {
+            throw new InvalidArgumentException('Invalid options value in setOptions method');
         }
         foreach ($options as $property => $value) {
             $method = 'set' . ucfirst($property);

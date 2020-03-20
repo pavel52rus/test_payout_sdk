@@ -4,6 +4,7 @@
 namespace Tests\YandexCheckoutPayout\Request;
 
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use YandexCheckoutPayout\Common\Helpers\Random;
 use YandexCheckoutPayout\Request\SynonymCardRequest;
@@ -56,7 +57,7 @@ class SynonymCardRequestTest extends TestCase
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function validCards()
     {
@@ -68,7 +69,7 @@ class SynonymCardRequestTest extends TestCase
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function validUrls()
     {

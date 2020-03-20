@@ -26,7 +26,13 @@
 
 namespace YandexCheckoutPayout\Common\Exceptions;
 
-class InvalidPropertyException extends \InvalidArgumentException
+use InvalidArgumentException;
+
+/**
+ * Class InvalidPropertyException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
+class InvalidPropertyException extends InvalidArgumentException
 {
     /**
      * @var string

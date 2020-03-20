@@ -4,10 +4,10 @@
 namespace Request\Serializers;
 
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use YandexCheckoutPayout\Model\CurrencyCode;
 use YandexCheckoutPayout\Model\Recipient\BankAccountRecipient;
-use YandexCheckoutPayout\Model\Recipient\BankCardRecipient;
 use YandexCheckoutPayout\Request\MakeDepositionRequest;
 use YandexCheckoutPayout\Request\Serializers\DepositionRequestSerializer;
 
@@ -66,7 +66,7 @@ class DepositionRequestSerializerTest extends TestCase
                 ->setSmsPhoneNumber('79998887775');
 
             $result = $instance->toArray();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->fail($e->getMessage());
             return;
         }
@@ -91,6 +91,6 @@ class DepositionRequestSerializerTest extends TestCase
             'BankCorAccount'    => 'accountngfgfg44'
         ];
 
-        $this->assertEquals($excepted, $serializer->serializePaymentParams($instance));
+        $this->assertEquals($excepted, $result);
     }
 }

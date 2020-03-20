@@ -29,8 +29,17 @@ namespace YandexCheckoutPayout\Request\Builders;
 
 use YandexCheckoutPayout\Request\MakeDepositionRequest;
 
+/**
+ * Класс для сборки запроса MakeDepositionRequest из массива
+ *
+ * @package YandexCheckoutPayout\Request\Builders
+ */
 class MakeDepositionRequestBuilder extends AbstractRequestBuilder
 {
+    /**
+     * MakeDepositionRequestBuilder constructor.
+     * @param null|string|int $clientOrderId
+     */
     public function __construct($clientOrderId = null)
     {
         $this->objectRequest = new MakeDepositionRequest($clientOrderId);

@@ -4,6 +4,7 @@
 namespace Tests\YandexCheckoutPayout\Model\Recipient;
 
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use YandexCheckoutPayout\Common\Helpers\Random;
 use YandexCheckoutPayout\Model\Recipient\BankCardRecipient;
@@ -66,7 +67,7 @@ class AbstractRecipientTest extends TestCase
 
         try {
             $instance->setPdrBirthDate($date);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->fail($e->getMessage());
         }
 
@@ -106,7 +107,7 @@ class AbstractRecipientTest extends TestCase
 
         try {
             $instance->setPdrDocIssueDate($date);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->fail($e->getMessage());
         }
 
@@ -116,15 +117,19 @@ class AbstractRecipientTest extends TestCase
     public function toArray()
     {
         $instance = new BankCardRecipient();
-        $instance->setPofOfferAccepted(true)
-                 ->setPdrLastName('Иванов')
-                 ->setPdrFirstName('Иван')
-                 ->setPdrMiddleName('Иванович')
-                 ->setDocNumber(777745)
-                 ->setPdrBirthDate('05.03.1993')
-                 ->setPdrAddress('Ст1 88 23')
-                 ->setSmsPhoneNumber(79990007788)
-                 ->setPdrDocIssueDate('03.03.2010');
+        try {
+            $instance->setPofOfferAccepted(true)
+                ->setPdrLastName('Иванов')
+                ->setPdrFirstName('Иван')
+                ->setPdrMiddleName('Иванович')
+                ->setDocNumber(777745)
+                ->setPdrBirthDate('05.03.1993')
+                ->setPdrAddress('Ст1 88 23')
+                ->setSmsPhoneNumber(79990007788)
+                ->setPdrDocIssueDate('03.03.2010');
+        } catch (Exception $e) {
+            $this->fail($e->getMessage());
+        }
 
         $excepted =  [
             'skr_destinationCardSynonim' => NULL,
@@ -157,7 +162,7 @@ class AbstractRecipientTest extends TestCase
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function validStringValues()
     {

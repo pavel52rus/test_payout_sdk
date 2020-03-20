@@ -29,8 +29,17 @@ namespace YandexCheckoutPayout\Request\Serializers;
 
 use YandexCheckoutPayout\Request\AbstractRequest;
 
+/**
+ * Class AbstractRequestSerializer
+ *
+ * @package YandexCheckoutPayout\Request\Serializers
+ */
 abstract class AbstractRequestSerializer
 {
+    /**
+     * @param AbstractRequest $request
+     * @return array
+     */
     public function serialize(AbstractRequest $request)
     {
         return [

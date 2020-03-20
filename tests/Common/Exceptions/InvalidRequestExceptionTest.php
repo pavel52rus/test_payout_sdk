@@ -3,8 +3,8 @@
 namespace Tests\YandexCheckoutPayout\Common\Exceptions;
 
 use PHPUnit\Framework\TestCase;
-use YandexCheckoutPayout\Request\AbstractRequest;
 use YandexCheckoutPayout\Common\Exceptions\InvalidRequestException;
+use YandexCheckoutPayout\Request\AbstractRequest;
 use YandexCheckoutPayout\Request\MakeDepositionRequest;
 
 class InvalidRequestExceptionTest extends TestCase

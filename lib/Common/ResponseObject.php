@@ -29,6 +29,11 @@ namespace YandexCheckoutPayout\Common;
 
 use YandexCheckoutPayout\Common\Helpers\OpenSSL;
 
+/**
+ * Класс объекта ответа, возвращаемого API при запросе выплаты, баланса
+ *
+ * @package YandexCheckoutPayout\Common
+ */
 class ResponseObject
 {
     protected $code;

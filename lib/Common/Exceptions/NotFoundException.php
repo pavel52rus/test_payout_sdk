@@ -26,6 +26,10 @@
 
 namespace YandexCheckoutPayout\Common\Exceptions;
 
+/**
+ * Class NotFoundException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
 class NotFoundException extends ApiException
 {
     const HTTP_CODE = 404;

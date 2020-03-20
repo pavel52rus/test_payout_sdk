@@ -26,9 +26,14 @@
 
 namespace YandexCheckoutPayout\Common\Exceptions;
 
+use RuntimeException;
 use YandexCheckoutPayout\Request\AbstractRequest;
 
-class InvalidRequestException extends \RuntimeException
+/**
+ * Class InvalidRequestException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
+class InvalidRequestException extends RuntimeException
 {
     /**
      * @var AbstractRequest|null

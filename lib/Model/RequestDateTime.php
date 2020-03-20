@@ -26,7 +26,11 @@
 
 namespace YandexCheckoutPayout\Model;
 
-
+/**
+ * Класс позволяет получить дату в необходимом для выплаты формате
+ *
+ * @package YandexCheckoutPayout\Model
+ */
 class RequestDateTime
 {
     const REQUEST_DT_FORMAT = 'Y-m-d\TH:i:s.000\Z';

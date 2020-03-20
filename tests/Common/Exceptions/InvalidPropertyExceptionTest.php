@@ -3,8 +3,8 @@
 namespace Tests\YandexCheckoutPayout\Common\Exceptions;
 
 use PHPUnit\Framework\TestCase;
-use YandexCheckoutPayout\Common\Helpers\StringObject;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyException;
+use YandexCheckoutPayout\Common\Helpers\StringObject;
 
 class InvalidPropertyExceptionTest extends TestCase
 {

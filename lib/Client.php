@@ -22,16 +22,19 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
  */
 
 namespace YandexCheckoutPayout;
 
+use Exception;
 use YandexCheckoutPayout\Client\CurlClient;
 use YandexCheckoutPayout\Common\Exceptions\AuthorizeException;
 use YandexCheckoutPayout\Common\Exceptions\OpenSSLException;
 use YandexCheckoutPayout\Common\Helpers\GeneratorCsr;
 use YandexCheckoutPayout\Common\HttpVerb;
 use YandexCheckoutPayout\Common\ResponseObject;
+use YandexCheckoutPayout\Common\ResponseSynonymCard;
 use YandexCheckoutPayout\Model\FormatType;
 use YandexCheckoutPayout\Request\AbstractDepositionRequest;
 use YandexCheckoutPayout\Request\AbstractRequest;
@@ -42,6 +45,20 @@ use YandexCheckoutPayout\Request\Serializers\SynonymCardRequestSerializer;
 use YandexCheckoutPayout\Request\SynonymCardRequest;
 use YandexCheckoutPayout\Request\TestDepositionRequest;
 
+/**
+ * Класс клиента API
+ *
+ * @example
+ * <code>
+ *  <?php
+ *      $keychain = new Keychain('publicCert.cer', 'privateCert.pem', 'password');
+ *      $client = new Client('000000', $keychain);
+ *      $response = $client->createDeposition($request);
+ *      $response->getXmlResponse()->getStatus();
+ * </code>
+ *
+ * @package YandexCheckoutPayout
+ */
 class Client extends CurlClient
 {
     const SDK_VERSION = '0.0.1';
@@ -58,7 +75,6 @@ class Client extends CurlClient
      * @param string $agentId
      * @param Keychain $keychain
      * @param null $curlConfiguration
-     * @throws Common\Exceptions\ExtensionNotFoundException
      */
     public function __construct($agentId = '', Keychain $keychain = null, $curlConfiguration = null)
     {
@@ -68,6 +84,10 @@ class Client extends CurlClient
     }
 
     /**
+     * Создание выплаты.
+     *
+     * Метод принимает объект запроса Make|Test DepositionRequest
+     *
      * @param AbstractDepositionRequest|array $request
      * @param null $clientOrderId
      * @return ResponseObject
@@ -75,6 +95,7 @@ class Client extends CurlClient
      * @throws Common\Exceptions\ApiException
      * @throws Common\Exceptions\ExtensionNotFoundException
      * @throws Common\Exceptions\OpenSSLException
+     * @throws Common\Exceptions\XmlException
      */
     public function createDeposition($request, $clientOrderId = null)
     {
@@ -93,11 +114,14 @@ class Client extends CurlClient
     }
 
     /**
+     * Возвращает баланс
+     *
      * @return mixed|ResponseObject
      * @throws Common\Exceptions\ApiConnectionException
      * @throws Common\Exceptions\ApiException
      * @throws Common\Exceptions\ExtensionNotFoundException
      * @throws Common\Exceptions\OpenSSLException
+     * @throws Common\Exceptions\XmlException
      */
     public function getBalance()
     {
@@ -111,11 +135,13 @@ class Client extends CurlClient
     /**
      * Создает приватный ключ и запрос на сертификат для Яндекс.Денег.
      * Возвращает подпись
+     *
      * @param $organizationInfo
      * @param $outputDir
      * @param string $privateKeyPassword
      * @return string|string[]
      * @throws Common\Exceptions\OpenSSLException
+     * @throws Exception
      */
     public function createCsr($organizationInfo, $outputDir = __DIR__, $privateKeyPassword = '')
     {
@@ -124,8 +150,11 @@ class Client extends CurlClient
     }
 
     /**
+     * Возвращает синоним карты
+     * Принимает объект запроса SynonymCardRequest
+     *
      * @param SynonymCardRequest|array $request
-     * @return mixed|ResponseObject
+     * @return ResponseSynonymCard
      * @throws Common\Exceptions\ApiConnectionException
      * @throws Common\Exceptions\ApiException
      * @throws Common\Exceptions\ExtensionNotFoundException
@@ -141,7 +170,8 @@ class Client extends CurlClient
         $requestBody = $serializer->serialize($request);
 
         $this->setRequestUrl(self::SYNONYM_REQUEST_ENDPOINT);
-        return $this->execute(self::SYNONYM_CARD_REQUEST, HttpVerb::POST, $requestBody, '', ['Content-Type: application/x-www-form-urlencoded']);
+        $response = $this->execute(self::SYNONYM_CARD_REQUEST, HttpVerb::POST, $requestBody, '', ['Content-Type: application/x-www-form-urlencoded']);
+        return new ResponseSynonymCard($response->getBody());
     }
 
     /**
@@ -150,6 +180,7 @@ class Client extends CurlClient
      * @throws AuthorizeException
      * @throws OpenSSLException
      * @throws Common\Exceptions\ExtensionNotFoundException
+     * @throws Common\Exceptions\XmlException
      */
     protected function prepareRequest($request)
     {

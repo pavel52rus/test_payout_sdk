@@ -30,6 +30,11 @@ namespace YandexCheckoutPayout\Common;
 use YandexCheckoutPayout\Common\Exceptions\ApiException;
 use YandexCheckoutPayout\Common\Helpers\ErrorConverter;
 
+/**
+ * Класс объекта ответа, возвращаемого API, для работы с xml
+ *
+ * @package YandexCheckoutPayout\Common
+ */
 class ResponseXmlObject
 {
     protected $fullXmlResponse;

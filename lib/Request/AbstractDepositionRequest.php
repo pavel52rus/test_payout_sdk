@@ -30,11 +30,16 @@ use YandexCheckoutPayout\Common\Exceptions\EmptyPropertyValueException;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 use YandexCheckoutPayout\Model\CurrencyCode;
+use YandexCheckoutPayout\Model\Recipient\BaseRecipient;
 use YandexCheckoutPayout\Model\Recipient\BankAccountRecipient;
 use YandexCheckoutPayout\Model\Recipient\BankCardRecipient;
-use YandexCheckoutPayout\Model\Recipient\AbstractRecipient;
 use YandexCheckoutPayout\Request\Serializers\DepositionRequestSerializer;
 
+/**
+ * Class AbstractDepositionRequest
+ *
+ * @package YandexCheckoutPayout\Request
+ */
 abstract class AbstractDepositionRequest extends AbstractRequest
 {
     /**
@@ -167,12 +172,12 @@ abstract class AbstractDepositionRequest extends AbstractRequest
     }
 
     /**
-     * @param BankAccountRecipient|BankCardRecipient|array $params
+     * @param BaseRecipient|BankCardRecipient|BankAccountRecipient|array $params
      * @return $this
      */
     public function setPaymentParams($params)
     {
-        if ($params instanceof AbstractRecipient || is_array($params)) {
+        if ($params instanceof BaseRecipient || is_array($params)) {
             $this->paymentParams = $params;
         }  else {
             throw new InvalidPropertyValueTypeException(
@@ -193,11 +198,17 @@ abstract class AbstractDepositionRequest extends AbstractRequest
         return $this->paymentParams;
     }
 
+    /**
+     * @return bool
+     */
     public function hasPaymentParams()
     {
         return !empty($this->paymentParams);
     }
 
+    /**
+     * @return Serializers\DepositionRequestSerializer
+     */
     public function getSerializer()
     {
         return new DepositionRequestSerializer();

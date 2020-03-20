@@ -4,6 +4,7 @@
 namespace Tests\YandexCheckoutPayout\Model\Recipient;
 
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use YandexCheckoutPayout\Common\Helpers\Random;
 use YandexCheckoutPayout\Model\Recipient\BankCardRecipient;
@@ -75,7 +76,7 @@ class BankCardRecipientTest extends TestCase
                      ->setPdrCity('city')
                      ->setPdrPostcode('53535')
                      ->setPdrDocIssueDate('08.10.2015');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->fail($e->getMessage());
         }
         $excepted = [
@@ -103,7 +104,7 @@ class BankCardRecipientTest extends TestCase
                      ->setPdrLastName('LastName')
                      ->setPdrBirthDate('08.07.1988')
                     ->setPdrAddress('address');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->fail($e->getMessage());
         }
         $excepted = [
@@ -126,7 +127,7 @@ class BankCardRecipientTest extends TestCase
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function validStringValues()
     {

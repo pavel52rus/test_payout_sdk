@@ -26,11 +26,18 @@
 
 namespace YandexCheckoutPayout\Request;
 
+use DateTime;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 use YandexCheckoutPayout\Model\FormatType;
 use YandexCheckoutPayout\Model\RequestDateTime;
+use YandexCheckoutPayout\Request\Serializers\AbstractRequestSerializer;
 
+/**
+ * Class AbstractRequest
+ *
+ * @package YandexCheckoutPayout\Request
+ */
 abstract class AbstractRequest
 {
     /**
@@ -59,7 +66,7 @@ abstract class AbstractRequest
     protected $clientOrderId;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     protected $requestDT;
 
@@ -75,6 +82,9 @@ abstract class AbstractRequest
      */
     abstract public function validate();
 
+    /**
+     * @return AbstractRequestSerializer
+     */
     abstract public function getSerializer();
 
     /**
@@ -142,7 +152,7 @@ abstract class AbstractRequest
 
     /**
      * Возвращает установленое время запроса
-     * @return \DateTime|string
+     * @return DateTime|string
      */
     public function getRequestDT()
     {

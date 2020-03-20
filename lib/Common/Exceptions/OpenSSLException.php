@@ -28,6 +28,10 @@ namespace YandexCheckoutPayout\Common\Exceptions;
 
 use Exception;
 
+/**
+ * Class OpenSSLException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
 class OpenSSLException extends Exception
 {
 

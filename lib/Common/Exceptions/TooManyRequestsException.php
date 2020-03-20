@@ -26,6 +26,10 @@
 
 namespace YandexCheckoutPayout\Common\Exceptions;
 
+/**
+ * Class TooManyRequestsException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
 class TooManyRequestsException extends ApiException
 {
     const HTTP_CODE = 429;

@@ -28,6 +28,11 @@ namespace YandexCheckoutPayout\Model;
 
 use YandexCheckoutPayout\Common\AbstractEnum;
 
+/**
+ * FormatType - формат запроса
+ *
+ * @package YandexCheckoutPayout\Model
+ */
 class FormatType extends AbstractEnum
 {
     const JSON = 'json';

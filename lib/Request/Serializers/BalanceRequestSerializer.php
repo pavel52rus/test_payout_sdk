@@ -26,7 +26,11 @@
 
 namespace YandexCheckoutPayout\Request\Serializers;
 
-
+/**
+ * Class BalanceRequestSerializer
+ *
+ * @package YandexCheckoutPayout\Request\Serializers
+ */
 class BalanceRequestSerializer extends AbstractRequestSerializer
 {
 

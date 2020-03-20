@@ -27,11 +27,25 @@
 namespace YandexCheckoutPayout\Model;
 
 
-use YandexCheckoutPayout\Common\Exceptions\EmptyPropertyValueException;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueException;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 
+/**
+ * Класс для построения данных организации при генерации запроса на сертификат
+ *
+ * @example
+ * <code>
+ *  <?php
+ *      $organization = new Organization();
+ *      $organization->setEmailAddress('predpriyatie@yandex.ru')
+ *                   ->setOrganizationName('OOO Predpriyatie')
+ *                   ->setCommonName('/business/predpriyatie');
+ *      $signature = $client->createCsr($organization, 'path/to/output/dir', 'password_for_private_key');
+ * </code>
+ *
+ * @package YandexCheckoutPayout\Model
+ */
 class Organization
 {
     public $countryName = "RU";

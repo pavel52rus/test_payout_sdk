@@ -25,7 +25,6 @@
  */
 
 use YandexCheckoutPayout\Client;
-use YandexCheckoutPayout\Common\Helpers\GeneratorCsr;
 use YandexCheckoutPayout\Model\Organization;
 
 require_once __DIR__ . '/../autoload.php';

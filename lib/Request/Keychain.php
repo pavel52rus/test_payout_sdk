@@ -30,6 +30,11 @@ namespace YandexCheckoutPayout\Request;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 
+/**
+ * Класс ключница
+ *
+ * @package YandexCheckoutPayout\Request
+ */
 class Keychain
 {
     /**

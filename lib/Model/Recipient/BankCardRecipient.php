@@ -30,7 +30,29 @@ namespace YandexCheckoutPayout\Model\Recipient;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 
-class BankCardRecipient extends AbstractRecipient
+/**
+ * Класс для построения параметров получателя при выплате на банковскую карту, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
+ *
+ * @example
+ * <code>
+ *  <?php
+ *      $recipient = new BankCardRecipient();
+ *      $recipient->setPdrLastName('Иванов')
+ *                 ->setPdrFirstName('Иван')
+ *                 ->setPdrMiddleName('Иванович')
+ *                 ->setDocNumber('1234567890')
+ *                 ->setPofOfferAccepted(true)
+ *                 ->setPdrDocIssueDate('01.02.2018')
+ *                 ->setSmsPhoneNumber('79999999999')
+ *                 ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
+ *
+ *      $depositionRequest = new MakeDepositionRequest();
+ *      $depositionRequest->setPaymentParams($recipient);
+ * </code>
+ *
+ * @package YandexCheckoutPayout\Model\Recipient
+ */
+class BankCardRecipient extends BaseRecipient
 {
     protected $pdrCity;
     protected $pdrAddress;

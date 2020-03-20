@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2017 NBCO Yandex.Money LLC
+ * Copyright (c) 2020 NBCO Yandex.Money LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ use Exception;
 /**
  * Класс хэлпер для преобразования типов значений
  *
- * @package YandexCheckout\Helpers
+ * @package YandexCheckoutPayout\Common\Helpers
  */
 class TypeCast
 {

@@ -26,6 +26,10 @@
 
 namespace YandexCheckoutPayout\Common\Exceptions;
 
+/**
+ * Class ApiConnectionException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
 class ApiConnectionException extends ApiException
 {
 

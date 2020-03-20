@@ -28,6 +28,10 @@ namespace YandexCheckoutPayout\Common\Exceptions;
 
 use Exception;
 
+/**
+ * Class ApiException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
 class ApiException extends Exception
 {
     /**

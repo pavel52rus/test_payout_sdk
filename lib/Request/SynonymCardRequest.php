@@ -31,12 +31,38 @@ use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueException;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 use YandexCheckoutPayout\Request\Builders\SynonymCardRequestBuilder;
+use YandexCheckoutPayout\Request\Serializers\SynonymCardRequestSerializer;
 
+/**
+ * Класс для создания запроса на получение синонима карты
+ *
+ * @example
+ * <code>
+ *  <?php
+ *      $synonymRequest = new SynonymCardRequest();
+ *      $synonymRequest->setSkrDestinationCardNumber('5555555555554444')
+ *                     ->setSkrErrorUrl('http://money.yandex.ru')
+ *                     ->setSkrSuccessUrl('http://money.yandex.ru');
+ *      $client->getSynonymCard($synonymRequest);
+ * </code>
+ *
+ * @package YandexCheckoutPayout\Request
+ */
 class SynonymCardRequest
 {
-    const FORMAT_JSON     = 'json';
+    /**
+     * @const string
+     */
+    const FORMAT_JSON = 'json';
+
+    /**
+     * @const string
+     */
     const FORMAT_REDIRECT = 'redirect';
 
+    /**
+     * @var array
+     */
     private static $validResponseFormats = [
         self::FORMAT_JSON,
         self::FORMAT_REDIRECT,
@@ -49,7 +75,7 @@ class SynonymCardRequest
     /**
      * @var string
      */
-    protected $skrResponseFormat = 'json';
+    protected $skrResponseFormat = self::FORMAT_JSON;
 
     /**
      * @var string
@@ -61,9 +87,12 @@ class SynonymCardRequest
      */
     protected $skrSuccessUrl;
 
+    /**
+     * SynonymCardRequest constructor.
+     */
     public function __construct()
     {
-        if (!empty($_SERVER['PATH_INFO'])) {
+        if (isset($_SERVER['PATH_INFO'])) {
             $this->setSkrErrorUrl($_SERVER['PATH_INFO'])
                  ->setSkrSuccessUrl($_SERVER['PATH_INFO']);
         }
@@ -163,6 +192,17 @@ class SynonymCardRequest
         return $this->skrSuccessUrl;
     }
 
+    /**
+     * @return SynonymCardRequestSerializer
+     */
+    public function getSerializer()
+    {
+        return new SynonymCardRequestSerializer();
+    }
+
+    /**
+     * @return SynonymCardRequestBuilder
+     */
     public static function getBuilder()
     {
         return new SynonymCardRequestBuilder();

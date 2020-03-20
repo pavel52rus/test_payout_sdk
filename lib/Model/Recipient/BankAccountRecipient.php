@@ -27,11 +27,41 @@
 namespace YandexCheckoutPayout\Model\Recipient;
 
 
+use Exception;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Helpers\Parser;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 
-class BankAccountRecipient extends AbstractRecipient
+/**
+ * Класс для построения параметров получателя при выплате на банковский счет, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
+ *
+ * @example
+ * <code>
+ *  <?php
+ *      $recipient = new BankAccountRecipient();
+ *      $recipient->setBankCity('bank city')
+ *                ->setBankName('bank name')
+ *                ->setBankBIK('999999999')
+ *                ->setPaymentPurpose('payment purpose 74')
+ *                ->setBankCorAccount('11111111111111111111')
+ *                ->setPofOfferAccepted(true)
+ *                ->setPdrDocIssueDate('05.05.2019')
+ *                ->setCustAccount('11111111111111111111')
+ *                ->setPdrMiddleName('Владимирович')
+ *                ->setPdrLastName('Владимиров')
+ *                ->setPdrFirstName('Владимир')
+ *                ->setPdrBirthDate('05.05.1990')
+ *                ->setPdrAddress('пос. Большие Васюки, ул. Комиссара Козявкина, д. 4')
+ *                ->setDocNumber('4002109067')
+ *                ->setSmsPhoneNumber('79653457676');
+ *
+ *      $depositionRequest = new MakeDepositionRequest();
+ *      $depositionRequest->setPaymentParams($recipient);
+ * </code>
+ *
+ * @package YandexCheckoutPayout\Model\Recipient
+ */
+class BankAccountRecipient extends BaseRecipient
 {
     protected $custAccount;
     protected $bankBIK;
@@ -147,7 +177,7 @@ class BankAccountRecipient extends AbstractRecipient
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function toArray()
     {

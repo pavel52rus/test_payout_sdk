@@ -6,12 +6,13 @@ namespace Tests\YandexCheckoutPayout\Request\Serializers;
 
 use PHPUnit\Framework\TestCase;
 use YandexCheckoutPayout\Request\BalanceRequest;
+use YandexCheckoutPayout\Request\Serializers\BalanceRequestSerializer;
 
 class BalanceRequestSerializerTest extends TestCase
 {
     public function testSerialize()
     {
-        $serializer = new \YandexCheckoutPayout\Request\Serializers\BalanceRequestSerializer();
+        $serializer = new BalanceRequestSerializer();
         $instance = new BalanceRequest();
         $instance->setClientOrderId('test32');
         $expected = [

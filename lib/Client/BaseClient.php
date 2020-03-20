@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The MIT License
  *
@@ -26,13 +27,20 @@
 namespace YandexCheckoutPayout\Client;
 
 use Psr\Log\LoggerInterface;
+use SimpleXMLElement;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Exceptions\OpenSSLException;
+use YandexCheckoutPayout\Common\Exceptions\XmlException;
 use YandexCheckoutPayout\Common\Helpers\OpenSSL;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 use YandexCheckoutPayout\Request\AbstractRequest;
 use YandexCheckoutPayout\Request\Keychain;
 
+/**
+ * Class BaseClient
+ *
+ * @package YandexCheckoutPayout\Client
+ */
 class BaseClient
 {
     /**
@@ -99,16 +107,18 @@ class BaseClient
      * @param AbstractRequest $request
      * @return bool|false|string
      * @throws OpenSSLException
+     * @throws XmlException
      */
     protected function prepareXml($request)
     {
+        libxml_use_internal_errors(true);
         $requestTag = $request->getRequestName();
         $xmlBaseString = "<?xml version='1.0' encoding='UTF-8'?><$requestTag agentId='{$this->getAgentId()}'></$requestTag>";
 
         $serializer   = $request->getSerializer();
         $requestArray = $serializer->serialize($request);
 
-        $xml = new \SimpleXMLElement($xmlBaseString);
+        $xml = new SimpleXMLElement($xmlBaseString);
         foreach ($requestArray as $name => $value) {
             if (!empty($value) && $name !== 'paymentParams') {
                 $xml->addAttribute($name, $value);
@@ -119,14 +129,19 @@ class BaseClient
             $xml->addChild('paymentParams');
 
             foreach ($requestArray['paymentParams'] as $name => $value) {
-                if (!empty($value)) {
+                if (!empty($value) && isset($xml->paymentParams)) {
                     $xml->paymentParams->addChild($name, $value);
                 }
             }
         }
 
+        $resultXml = $xml->asXML();
+        if ($resultXml === false) {
+            throw new XmlException(libxml_get_last_error(), 0);
+        }
+
         return OpenSSL::encryptPKCS7(
-            $xml->asXML(),
+            $resultXml,
             $this->keychain
         );
     }

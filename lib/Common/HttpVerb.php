@@ -26,6 +26,11 @@
 
 namespace YandexCheckoutPayout\Common;
 
+/**
+ * Class HttpVerb
+ *
+ * @package YandexCheckoutPayout\Common
+ */
 class HttpVerb extends AbstractEnum
 {
     const GET = 'GET';

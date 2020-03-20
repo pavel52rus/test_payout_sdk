@@ -28,11 +28,20 @@ namespace YandexCheckoutPayout\Request\Serializers;
 
 
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
-use YandexCheckoutPayout\Model\Recipient\AbstractRecipient;
+use YandexCheckoutPayout\Model\Recipient\BaseRecipient;
 use YandexCheckoutPayout\Request\AbstractRequest;
 
+/**
+ * Class DepositionRequestSerializer
+ *
+ * @package YandexCheckoutPayout\Request\Serializers
+ */
 class DepositionRequestSerializer extends AbstractRequestSerializer
 {
+    /**
+     * @param AbstractRequest $request
+     * @return array
+     */
     public function serialize(AbstractRequest $request)
     {
         $serializedParams = parent::serialize($request);
@@ -50,9 +59,13 @@ class DepositionRequestSerializer extends AbstractRequestSerializer
         return array_merge($result, $serializedParams);
     }
 
+    /**
+     * @param $paymentParams
+     * @return array
+     */
     public function serializePaymentParams($paymentParams)
     {
-        if ($paymentParams instanceof AbstractRecipient) {
+        if ($paymentParams instanceof BaseRecipient) {
             $result = $paymentParams->toArray();
         } elseif (is_array($paymentParams)) {
             $result = $paymentParams;

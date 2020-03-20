@@ -2,7 +2,8 @@
 
 namespace Tests\YandexCheckoutPayout\Common\Exceptions;
 
-use Tests\YandexCheckoutPayout\Common\Exceptions\InvalidPropertyExceptionTest;
+use DateTime;
+use stdClass;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueException;
 
 class InvalidPropertyValueExceptionTest extends InvalidPropertyExceptionTest
@@ -33,8 +34,8 @@ class InvalidPropertyValueExceptionTest extends InvalidPropertyExceptionTest
             [''],
             ['value'],
             [['test']],
-            [new \stdClass()],
-            [new \DateTime()],
+            [new stdClass()],
+            [new DateTime()],
         ];
     }
 }

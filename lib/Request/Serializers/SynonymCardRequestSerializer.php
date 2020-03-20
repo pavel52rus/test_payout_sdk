@@ -29,8 +29,17 @@ namespace YandexCheckoutPayout\Request\Serializers;
 
 use YandexCheckoutPayout\Request\SynonymCardRequest;
 
+/**
+ * Class SynonymCardRequestSerializer
+ *
+ * @package YandexCheckoutPayout\Request\Serializers
+ */
 class SynonymCardRequestSerializer
 {
+    /**
+     * @param SynonymCardRequest $request
+     * @return array
+     */
     public function serialize(SynonymCardRequest $request)
     {
         return [

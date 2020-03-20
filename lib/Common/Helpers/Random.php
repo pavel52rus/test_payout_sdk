@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2017 NBCO Yandex.Money LLC
+ * Copyright (c) 2020 NBCO Yandex.Money LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,13 @@
 namespace YandexCheckoutPayout\Common\Helpers;
 
 
+use Exception;
+
+/**
+ * Class Random
+ *
+ * @package YandexCheckoutPayout\Common\Helpers
+ */
 class Random
 {
     /**
@@ -35,7 +42,7 @@ class Random
      * @param int|null $max Максимально возможное значение
      * @param bool $useBest Использовать ли функцию random_int если она доступна
      * @return int Рандомное целое число
-     * @throws \Exception
+     * @throws Exception
      */
     public static function int($min = null, $max = null, $useBest = true)
     {
@@ -58,7 +65,7 @@ class Random
      * @param float|null $max Максимально возможное значение
      * @param bool $useBest Использовать ли функцию random_int если она доступна
      * @return float Рандомное число с плавающей точкой
-     * @throws \Exception
+     * @throws Exception
      */
     public static function float($min = null, $max = null, $useBest = true)
     {
@@ -79,7 +86,7 @@ class Random
      * @param string|array|null $characters Строка или массив используемых в строке символов
      * @param bool $useBest Использовать ли функцию random_int если она доступна
      * @return string Строка, состоящая из рандомных символов
-     * @throws \Exception
+     * @throws Exception
      */
     public static function str($length, $maxLength = null, $characters = null, $useBest = true)
     {
@@ -110,7 +117,7 @@ class Random
      * @param int $length Длина возвращаемой строки
      * @param bool $useBest Использовать ли функцию random_int если она доступна
      * @return string Строка, состоящая из рандомных символов
-     * @throws \Exception
+     * @throws Exception
      */
     public static function hex($length, $useBest = true)
     {
@@ -122,7 +129,7 @@ class Random
      * @param int $length Длина возвращаемой строки
      * @param bool $useBest Использовать ли функцию random_int если она доступна
      * @return string Строка, состоящая из рандомных символов
-     * @throws \Exception
+     * @throws Exception
      */
     public static function bytes($length, $useBest = true)
     {
@@ -143,7 +150,7 @@ class Random
      * @param array $values Массив источник данных
      * @param bool $useBest Использовать ли функцию random_int если она доступна
      * @return mixed Случайное значение из переданного массива
-     * @throws \Exception
+     * @throws Exception
      */
     public static function value(array $values, $useBest = true)
     {
@@ -153,7 +160,7 @@ class Random
     /**
      * Возвращает рандомное буллево значение
      * @return bool Либо true либо false, одно из двух
-     * @throws \Exception
+     * @throws Exception
      */
     public static function bool()
     {

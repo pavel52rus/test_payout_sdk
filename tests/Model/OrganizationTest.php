@@ -4,6 +4,7 @@
 namespace Tests\YandexCheckoutPayout\Model;
 
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use YandexCheckoutPayout\Common\Helpers\Random;
 use YandexCheckoutPayout\Common\Helpers\StringObject;
@@ -137,7 +138,7 @@ class OrganizationTest extends TestCase
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function validStringValues()
     {

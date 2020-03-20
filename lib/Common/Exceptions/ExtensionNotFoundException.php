@@ -28,6 +28,10 @@ namespace YandexCheckoutPayout\Common\Exceptions;
 
 use Exception;
 
+/**
+ * Class ExtensionNotFoundException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
 class ExtensionNotFoundException extends Exception
 {
     /**

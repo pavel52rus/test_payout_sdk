@@ -29,8 +29,16 @@ namespace YandexCheckoutPayout\Request;
 
 use YandexCheckoutPayout\Request\Serializers\BalanceRequestSerializer;
 
+/**
+ * Класс для создания запроса баланса
+ *
+ * @package YandexCheckoutPayout\Request
+ */
 class BalanceRequest extends AbstractRequest
 {
+    /**
+     * @var string
+     */
     protected $requestName = 'balance';
 
     /**
@@ -41,6 +49,9 @@ class BalanceRequest extends AbstractRequest
         return true;
     }
 
+    /**
+     * @return Serializers\AbstractRequestSerializer|BalanceRequestSerializer
+     */
     public function getSerializer()
     {
         return new BalanceRequestSerializer();

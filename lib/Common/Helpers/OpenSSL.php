@@ -3,7 +3,7 @@
 /**
  * The MIT License
  *
- * Copyright (c) 2017 NBCO Yandex.Money LLC
+ * Copyright (c) 2020 NBCO Yandex.Money LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,6 +30,11 @@ namespace YandexCheckoutPayout\Common\Helpers;
 use YandexCheckoutPayout\Common\Exceptions\OpenSSLException;
 use YandexCheckoutPayout\Request\Keychain;
 
+/**
+ * Класс используется для упаковки данных в PKCS#7 и их распаковки.
+ *
+ * @package YandexCheckoutPayout\Common\Helpers
+ */
 class OpenSSL
 {
     /**
@@ -42,7 +47,7 @@ class OpenSSL
      * Подписывает и возвращает данные запакованные в PKCS#7
      * @param $data
      * @param Keychain $keychain
-     * @return bool|false|string
+     * @return string
      * @throws OpenSSLException
      */
     public static function encryptPKCS7($data, Keychain $keychain)
@@ -59,7 +64,7 @@ class OpenSSL
      * Проверяет подпись и возвращает содержимое пакета
      * @param $data
      * @param $CAcert
-     * @return bool|false|string
+     * @return string
      * @throws OpenSSLException
      */
     public static function decryptPKCS7($data, $CAcert = null)

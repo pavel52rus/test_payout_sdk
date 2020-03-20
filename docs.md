@@ -37,7 +37,6 @@
 - [\YandexCheckoutPayout\Model\IssueDate](#class-yandexcheckoutpayoutmodelissuedate)
 - [\YandexCheckoutPayout\Model\Organization](#class-yandexcheckoutpayoutmodelorganization)
 - [\YandexCheckoutPayout\Model\RequestDateTime](#class-yandexcheckoutpayoutmodelrequestdatetime)
-- [\YandexCheckoutPayout\Model\RequestMode](#class-yandexcheckoutpayoutmodelrequestmode)
 - [\YandexCheckoutPayout\Model\Recipient\BankAccountRecipient](#class-yandexcheckoutpayoutmodelrecipientbankaccountrecipient)
 - [\YandexCheckoutPayout\Model\Recipient\BankCardRecipient](#class-yandexcheckoutpayoutmodelrecipientbankcardrecipient)
 - [\YandexCheckoutPayout\Model\Recipient\BaseRecipient](#class-yandexcheckoutpayoutmodelrecipientbaserecipient)
@@ -77,7 +76,7 @@
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>string</em> <strong>$agentId=`''`</strong>, <em>[\YandexCheckoutPayout\Request\Keychain](#class-yandexcheckoutpayoutrequestkeychain)</em> <strong>$keychain=null</strong>, <em>null</em> <strong>$curlConfiguration=null</strong>)</strong> : <em>void</em><br /><em>Client constructor.</em> |
-| public | <strong>createCsr(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string/mixed</em> <strong>$outputDir=`'C:\Users\pamolodovskii\Desktop\Новая папка\payout\lib'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>string/string[]</em><br /><em>Создает приватный ключ и запрос на сертификат для Яндекс.Денег. Возвращает подпись</em> |
+| public | <strong>createCsr(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string/mixed</em> <strong>$outputDir=`'C:\Intel\OSPanel\domains\payout-sdk-test.local\lib'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>string/string[]</em><br /><em>Создает приватный ключ и запрос на сертификат для Яндекс.Денег. Возвращает подпись</em> |
 | public | <strong>createDeposition(</strong><em>\YandexCheckoutPayout\AbstractDepositionRequest/array</em> <strong>$request</strong>, <em>null</em> <strong>$clientOrderId=null</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)</em><br /><em>Создание выплаты. Метод принимает объект запроса Make|Test DepositionRequest</em> |
 | public | <strong>getBalance()</strong> : <em>mixed/\YandexCheckoutPayout\ResponseObject</em><br /><em>Возвращает баланс</em> |
 | public | <strong>getSynonymCard(</strong><em>\YandexCheckoutPayout\SynonymCardRequest/array</em> <strong>$request</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseSynonymCard](#class-yandexcheckoutpayoutcommonresponsesynonymcard)</em><br /><em>Возвращает синоним карты Принимает объект запроса SynonymCardRequest</em> |
@@ -111,8 +110,8 @@
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>null</em> <strong>$curlConfiguration=null</strong>)</strong> : <em>void</em><br /><em>CurlClient constructor.</em> |
 | public | <strong>getCurlConfiguration()</strong> : <em>[\YandexCheckoutPayout\Client\CurlConfiguration](#class-yandexcheckoutpayoutclientcurlconfiguration)</em> |
+| protected | <strong>call(</strong><em>mixed</em> <strong>$path</strong>, <em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$queryParams</strong>, <em>null</em> <strong>$httpBody=null</strong>, <em>array</em> <strong>$headers=array()</strong>)</strong> : <em>[\YandexCheckoutPayout\Common\ResponseObject](#class-yandexcheckoutpayoutcommonresponseobject)</em> |
 | protected | <strong>execute(</strong><em>mixed</em> <strong>$path</strong>, <em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$queryParams</strong>, <em>null</em> <strong>$httpBody=null</strong>, <em>array</em> <strong>$headers=array()</strong>)</strong> : <em>mixed/[\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)\ResponseObject</em><br /><em>Выполнение запроса</em> |
-| protected | <strong>call(</strong><em>mixed</em> <strong>$path</strong>, <em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$queryParams</strong>, <em>null</em> <strong>$httpBody=null</strong>, <em>array</em> <strong>$headers=array()</strong>)</strong> : <em>mixed/[\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)\ResponseObject</em><br /> |
 | protected | <strong>getRequestUrl()</strong> : <em>string</em> |
 | protected | <strong>initCurl()</strong> : <em>[\YandexCheckoutPayout\Client](#class-yandexcheckoutpayoutclient)\resource</em> |
 | protected | <strong>sendRequest()</strong> : <em>array</em> |
@@ -166,7 +165,7 @@
 
 ### Class: \YandexCheckoutPayout\Common\ResponseObject
 
-> Class ResponseObject
+> Класс объекта ответа, возвращаемого API при запросе выплаты, баланса
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -180,7 +179,7 @@
 
 ### Class: \YandexCheckoutPayout\Common\ResponseSynonymCard
 
-> Class ResponseSynonymCard
+> Класс объекта ответа, возвращаемого API при запросе синонима карты
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -199,7 +198,7 @@
 
 ### Class: \YandexCheckoutPayout\Common\ResponseXmlObject
 
-> Class ResponseXmlObject
+> Класс объекта ответа, возвращаемого API, для работы с xml
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -427,7 +426,7 @@
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string</em> <strong>$output=`'C:\Users\pamolodovskii\Desktop\Новая папка\payout\lib\Common\Helpers'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$organizationInfo</strong>, <em>string</em> <strong>$output=`'C:\Intel\OSPanel\domains\payout-sdk-test.local\lib\Common\Helpers'`</strong>, <em>string</em> <strong>$privateKeyPassword=`''`</strong>)</strong> : <em>void</em> |
 | public | <strong>generate()</strong> : <em>string/string[]</em> |
 | public | <strong>getConfig()</strong> : <em>array</em> |
 | public | <strong>setConfig(</strong><em>mixed</em> <strong>$config</strong>)</strong> : <em>void</em> |
@@ -511,7 +510,7 @@
 
 ### Class: \YandexCheckoutPayout\Model\CurrencyCode
 
-> Class CurrencyCode
+> CurrencyCode - Код валюты перевода
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -522,7 +521,7 @@
 
 ### Class: \YandexCheckoutPayout\Model\DstAccount
 
-> Class DstAccount
+> DstAccount - Идентификатор получателя перевода. Зависит от того, куда вы отправляете перевод. |Код|Описание| --- | --- |BANK_CARD|перевод на банковскую карту| |BANK_ACCOUNT|перевод на банковский счет|
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -533,7 +532,7 @@
 
 ### Class: \YandexCheckoutPayout\Model\FormatType
 
-> Class FormatType
+> FormatType - формат запроса
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -544,7 +543,7 @@
 
 ### Class: \YandexCheckoutPayout\Model\IssueDate
 
-> Class IssueDate
+> Класс для работы с датой
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -562,7 +561,17 @@
 
 ### Class: \YandexCheckoutPayout\Model\Organization
 
-> Class Organization
+> Класс для построения данных организации при генерации запроса на сертификат
+
+###### Example
+```php
+<?php
+    $organization = new Organization();
+    $organization->setEmailAddress('predpriyatie@yandex.ru')
+              ->setOrganizationName('OOO Predpriyatie')
+              ->setCommonName('/business/predpriyatie');
+    $signature = $client->createCsr($organization, 'path/to/output/dir', 'password_for_private_key');
+```
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -588,7 +597,7 @@
 
 ### Class: \YandexCheckoutPayout\Model\RequestDateTime
 
-> Class RequestDateTime
+> Класс позволяет получить дату в необходимом для выплаты формате
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -596,20 +605,33 @@
 
 <hr />
 
-### Class: \YandexCheckoutPayout\Model\RequestMode
-
-> Class RequestMode
-
-| Visibility | Function |
-|:-----------|:---------|
-
-*This class extends [\YandexCheckoutPayout\Common\AbstractEnum](#class-yandexcheckoutpayoutcommonabstractenum-abstract)*
-
-<hr />
-
 ### Class: \YandexCheckoutPayout\Model\Recipient\BankAccountRecipient
 
-> Класс для построения параметров получателя на банковский счет, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
+> Класс для построения параметров получателя при выплате на банковский счет, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
+
+###### Example
+```php
+<?php
+    $recipient = new BankAccountRecipient();
+    $recipient->setBankCity('bank city')
+    ->setBankName('bank name')
+    ->setBankBIK('999999999')
+    ->setPaymentPurpose('payment purpose 74')
+    ->setBankCorAccount('11111111111111111111')
+    ->setPofOfferAccepted(true)
+    ->setPdrDocIssueDate('05.05.2019')
+    ->setCustAccount('11111111111111111111')
+    ->setPdrMiddleName('Владимирович')
+    ->setPdrLastName('Владимиров')
+    ->setPdrFirstName('Владимир')
+    ->setPdrBirthDate('05.05.1990')
+    ->setPdrAddress('пос. Большие Васюки, ул. Комиссара Козявкина, д. 4')
+    ->setDocNumber('4002109067')
+    ->setSmsPhoneNumber('79653457676');
+    
+    $depositionRequest = new MakeDepositionRequest();
+    $depositionRequest->setPaymentParams($recipient);
+```
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -633,7 +655,24 @@
 
 ### Class: \YandexCheckoutPayout\Model\Recipient\BankCardRecipient
 
-> Класс для построения параметров получателя на банковскую карту, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
+> Класс для построения параметров получателя при выплате на банковскую карту, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
+
+###### Example
+```php
+<?php
+    $recipient = new BankCardRecipient();
+    $recipient->setPdrLastName('Иванов')
+     ->setPdrFirstName('Иван')
+     ->setPdrMiddleName('Иванович')
+     ->setDocNumber('1234567890')
+     ->setPofOfferAccepted(true)
+     ->setPdrDocIssueDate('01.02.2018')
+     ->setSmsPhoneNumber('79999999999')
+     ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
+    
+    $depositionRequest = new MakeDepositionRequest();
+    $depositionRequest->setPaymentParams($recipient);
+```
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -654,7 +693,17 @@
 
 ### Class: \YandexCheckoutPayout\Model\Recipient\BaseRecipient
 
-> Class BaseRecipient
+> Класс для построения параметров получателя при выплате на моб.телефон, затем можно передать в setPaymentParams() у (Make|Test)DepositionRequest
+
+###### Example
+```php
+<?php
+    $recipient = new BaseRecipient();
+    $recipient->setPofOfferAccepted(true);
+    
+    $depositionRequest = new MakeDepositionRequest();
+    $depositionRequest->setPaymentParams($recipient);
+```
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -740,7 +789,7 @@
 | public | <strong>getCurrency()</strong> : <em>mixed</em> |
 | public | <strong>getDstAccount()</strong> : <em>mixed</em> |
 | public | <strong>getPaymentParams()</strong> : <em>\YandexCheckoutPayout\Request\BankAccountRecipient/\YandexCheckoutPayout\Request\BankCardRecipient/array</em> |
-| public | <strong>getSerializer()</strong> : <em>mixed</em> |
+| public | <strong>getSerializer()</strong> : <em>[\YandexCheckoutPayout\Request\Serializers\DepositionRequestSerializer](#class-yandexcheckoutpayoutrequestserializersdepositionrequestserializer)</em> |
 | public | <strong>hasPaymentParams()</strong> : <em>bool</em> |
 | public | <strong>setAmount(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>\YandexCheckoutPayout\Request\$this</em> |
 | public | <strong>setContract(</strong><em>mixed</em> <strong>$value</strong>)</strong> : <em>[\YandexCheckoutPayout\Request\AbstractDepositionRequest](#class-yandexcheckoutpayoutrequestabstractdepositionrequest-abstract)</em> |
@@ -782,7 +831,7 @@
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>getSerializer()</strong> : <em>mixed</em> |
+| public | <strong>getSerializer()</strong> : <em>[\YandexCheckoutPayout\Request\Serializers\AbstractRequestSerializer](#class-yandexcheckoutpayoutrequestserializersabstractrequestserializer-abstract)/[\YandexCheckoutPayout\Request\BalanceRequest](#class-yandexcheckoutpayoutrequestbalancerequest)Serializer</em> |
 | public | <strong>validate()</strong> : <em>bool True если запрос валиден, false если нет</em><br /><em>Валидирует текущий запрос, проверяет все ли нужные свойства установлены</em> |
 
 *This class extends [\YandexCheckoutPayout\Request\AbstractRequest](#class-yandexcheckoutpayoutrequestabstractrequest-abstract)*
@@ -791,7 +840,7 @@
 
 ### Class: \YandexCheckoutPayout\Request\Keychain
 
-> Class Keychain
+> Класс ключница
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -812,37 +861,37 @@
 ###### Example
 ```php
 <?php
-     //Выплата на кошелек
-     $depositionRequest = new MakeDepositionRequest();
-     $depositionRequest->setDstAccount('41001614575714')
-                ->setAmount(100)
-                ->setCurrency(CurrencyCode::RUB)
-                ->setContract('test');
-     $client->createDeposition($depositionRequest);
-
-     //Выплата на карту
-     $recipient = new BankCardRecipient();
-     $recipient->setPdrLastName('Иванов')
-        ->setPdrFirstName('Иван')
-        ->setPdrMiddleName('Иванович')
-        ->setDocNumber('1234567890')
-        ->setPofOfferAccepted(true)
-        ->setPdrDocIssueDate('01.02.2018')
-        ->setSmsPhoneNumber('79999999999')
-        ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
-
-     $depositionRequest = new MakeDepositionRequest();
-     $depositionRequest->setDstAccount(DstAccount::BANK_CARD)
-                ->setAmount(100)
-                ->setCurrency(CurrencyCode::RUB)
-                ->setContract('test')
-                ->setPaymentParams($recipient);
-     $client->createDeposition($depositionRequest);
+    //Выплата на кошелек
+    $depositionRequest = new MakeDepositionRequest();
+    $depositionRequest->setDstAccount('41001614575714')
+            ->setAmount(100)
+            ->setCurrency(CurrencyCode::RUB)
+            ->setContract('test');
+    $client->createDeposition($depositionRequest);
+    
+    //Выплата на карту
+    $recipient = new BankCardRecipient();
+    $recipient->setPdrLastName('Иванов')
+    ->setPdrFirstName('Иван')
+    ->setPdrMiddleName('Иванович')
+    ->setDocNumber('1234567890')
+    ->setPofOfferAccepted(true)
+    ->setPdrDocIssueDate('01.02.2018')
+    ->setSmsPhoneNumber('79999999999')
+    ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
+    
+    $depositionRequest = new MakeDepositionRequest();
+    $depositionRequest->setDstAccount(DstAccount::BANK_CARD)
+            ->setAmount(100)
+            ->setCurrency(CurrencyCode::RUB)
+            ->setContract('test')
+            ->setPaymentParams($recipient);
+    $client->createDeposition($depositionRequest);
 ```
 
 | Visibility | Function |
 |:-----------|:---------|
-| public static | <strong>getBuilder(</strong><em>mixed</em> <strong>$clientOrderId=null</strong>)</strong> : <em>mixed</em> |
+| public static | <strong>getBuilder(</strong><em>null/string/int</em> <strong>$clientOrderId=null</strong>)</strong> : <em>[\YandexCheckoutPayout\Request\Builders\MakeDepositionRequestBuilder](#class-yandexcheckoutpayoutrequestbuildersmakedepositionrequestbuilder)</em> |
 | public | <strong>validate()</strong> : <em>bool True если запрос валиден, false если нет</em><br /><em>Валидирует текущий запрос, проверяет все ли нужные свойства установлены</em> |
 
 *This class extends [\YandexCheckoutPayout\Request\AbstractDepositionRequest](#class-yandexcheckoutpayoutrequestabstractdepositionrequest-abstract)*
@@ -856,17 +905,17 @@
 ###### Example
 ```php
 <?php
-     $synonymRequest = new SynonymCardRequest();
-     $synonymRequest->setSkrDestinationCardNumber('5555555555554444')
-             ->setSkrErrorUrl('http://money.yandex.ru')
-             ->setSkrSuccessUrl('http://money.yandex.ru');
-     $client->getSynonymCard($synonymRequest);
+    $synonymRequest = new SynonymCardRequest();
+    $synonymRequest->setSkrDestinationCardNumber('5555555555554444')
+         ->setSkrErrorUrl('http://money.yandex.ru')
+         ->setSkrSuccessUrl('http://money.yandex.ru');
+    $client->getSynonymCard($synonymRequest);
 ```
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct()</strong> : <em>void</em> |
-| public static | <strong>getBuilder()</strong> : <em>mixed</em> |
+| public | <strong>__construct()</strong> : <em>void</em><br /><em>SynonymCardRequest constructor.</em> |
+| public static | <strong>getBuilder()</strong> : <em>[\YandexCheckoutPayout\Request\Builders\SynonymCardRequestBuilder](#class-yandexcheckoutpayoutrequestbuilderssynonymcardrequestbuilder)</em> |
 | public | <strong>getSerializer()</strong> : <em>[\YandexCheckoutPayout\Request\Serializers\SynonymCardRequestSerializer](#class-yandexcheckoutpayoutrequestserializerssynonymcardrequestserializer)</em> |
 | public | <strong>getSkrDestinationCardNumber()</strong> : <em>string</em> |
 | public | <strong>getSkrErrorUrl()</strong> : <em>string</em> |
@@ -886,37 +935,37 @@
 ###### Example
 ```php
 <?php
-     //Выплата на кошелек
-     $depositionRequest = new TestDepositionRequest();
-     $depositionRequest->setDstAccount('41001614575714')
-                ->setAmount(100)
-                ->setCurrency(CurrencyCode::RUB)
-                ->setContract('test');
-     $client->createDeposition($depositionRequest);
-
-     //Выплата на карту
-     $recipient = new BankCardRecipient();
-     $recipient->setPdrLastName('Иванов')
-        ->setPdrFirstName('Иван')
-        ->setPdrMiddleName('Иванович')
-        ->setDocNumber('1234567890')
-        ->setPofOfferAccepted(true)
-        ->setPdrDocIssueDate('01.02.2018')
-        ->setSmsPhoneNumber('79999999999')
-        ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
-
-     $depositionRequest = new TestDepositionRequest();
-     $depositionRequest->setDstAccount(DstAccount::BANK_CARD)
-                ->setAmount(100)
-                ->setCurrency(CurrencyCode::RUB)
-                ->setContract('test')
-                ->setPaymentParams($recipient);
-     $client->createDeposition($depositionRequest);
+    //Выплата на кошелек
+    $depositionRequest = new TestDepositionRequest();
+    $depositionRequest->setDstAccount('41001614575714')
+            ->setAmount(100)
+            ->setCurrency(CurrencyCode::RUB)
+            ->setContract('test');
+    $client->createDeposition($depositionRequest);
+    
+    //Выплата на карту
+    $recipient = new BankCardRecipient();
+    $recipient->setPdrLastName('Иванов')
+    ->setPdrFirstName('Иван')
+    ->setPdrMiddleName('Иванович')
+    ->setDocNumber('1234567890')
+    ->setPofOfferAccepted(true)
+    ->setPdrDocIssueDate('01.02.2018')
+    ->setSmsPhoneNumber('79999999999')
+    ->setSkrDestinationCardSynonym('R8zigwjuuzlxmfOfJ8SPDzLU.SC.000.202002');
+    
+    $depositionRequest = new TestDepositionRequest();
+    $depositionRequest->setDstAccount(DstAccount::BANK_CARD)
+            ->setAmount(100)
+            ->setCurrency(CurrencyCode::RUB)
+            ->setContract('test')
+            ->setPaymentParams($recipient);
+    $client->createDeposition($depositionRequest);
 ```
 
 | Visibility | Function |
 |:-----------|:---------|
-| public static | <strong>getBuilder(</strong><em>mixed</em> <strong>$clientOrderId=null</strong>)</strong> : <em>mixed</em> |
+| public static | <strong>getBuilder(</strong><em>null/string/int</em> <strong>$clientOrderId=null</strong>)</strong> : <em>[\YandexCheckoutPayout\Request\Builders\TestDepositionRequestBuilder](#class-yandexcheckoutpayoutrequestbuilderstestdepositionrequestbuilder)</em> |
 | public | <strong>validate()</strong> : <em>bool True если запрос валиден, false если нет</em><br /><em>Валидирует текущий запрос, проверяет все ли нужные свойства установлены</em> |
 
 *This class extends [\YandexCheckoutPayout\Request\AbstractDepositionRequest](#class-yandexcheckoutpayoutrequestabstractdepositionrequest-abstract)*
@@ -936,11 +985,11 @@
 
 ### Class: \YandexCheckoutPayout\Request\Builders\MakeDepositionRequestBuilder
 
-> Class MakeDepositionRequestBuilder
+> Класс для сборки запроса MakeDepositionRequest из массива
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$clientOrderId=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>null/string/int</em> <strong>$clientOrderId=null</strong>)</strong> : <em>void</em><br /><em>MakeDepositionRequestBuilder constructor.</em> |
 
 *This class extends [\YandexCheckoutPayout\Request\Builders\AbstractRequestBuilder](#class-yandexcheckoutpayoutrequestbuildersabstractrequestbuilder-abstract)*
 
@@ -948,11 +997,11 @@
 
 ### Class: \YandexCheckoutPayout\Request\Builders\SynonymCardRequestBuilder
 
-> Class SynonymCardRequestBuilder
+> Класс для сборки запроса SynonymCardRequest из массива
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct()</strong> : <em>void</em> |
+| public | <strong>__construct()</strong> : <em>void</em><br /><em>SynonymCardRequestBuilder constructor.</em> |
 
 *This class extends [\YandexCheckoutPayout\Request\Builders\AbstractRequestBuilder](#class-yandexcheckoutpayoutrequestbuildersabstractrequestbuilder-abstract)*
 
@@ -960,11 +1009,11 @@
 
 ### Class: \YandexCheckoutPayout\Request\Builders\TestDepositionRequestBuilder
 
-> Class TestDepositionRequestBuilder
+> Класс для сборки запроса TestDepositionRequest из массива
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$clientOrderId=null</strong>)</strong> : <em>void</em> |
+| public | <strong>__construct(</strong><em>null/string/int</em> <strong>$clientOrderId=null</strong>)</strong> : <em>void</em><br /><em>TestDepositionRequestBuilder constructor.</em> |
 
 *This class extends [\YandexCheckoutPayout\Request\Builders\AbstractRequestBuilder](#class-yandexcheckoutpayoutrequestbuildersabstractrequestbuilder-abstract)*
 
@@ -976,7 +1025,7 @@
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\AbstractRequest](#class-yandexcheckoutpayoutrequestabstractrequest-abstract)</em> <strong>$request</strong>)</strong> : <em>void</em> |
+| public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\AbstractRequest](#class-yandexcheckoutpayoutrequestabstractrequest-abstract)</em> <strong>$request</strong>)</strong> : <em>array</em> |
 
 <hr />
 
@@ -997,8 +1046,8 @@
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\AbstractRequest](#class-yandexcheckoutpayoutrequestabstractrequest-abstract)</em> <strong>$request</strong>)</strong> : <em>void</em> |
-| public | <strong>serializePaymentParams(</strong><em>mixed</em> <strong>$paymentParams</strong>)</strong> : <em>void</em> |
+| public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\AbstractRequest](#class-yandexcheckoutpayoutrequestabstractrequest-abstract)</em> <strong>$request</strong>)</strong> : <em>array</em> |
+| public | <strong>serializePaymentParams(</strong><em>mixed</em> <strong>$paymentParams</strong>)</strong> : <em>array</em> |
 
 *This class extends [\YandexCheckoutPayout\Request\Serializers\AbstractRequestSerializer](#class-yandexcheckoutpayoutrequestserializersabstractrequestserializer-abstract)*
 
@@ -1010,4 +1059,11 @@
 
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\SynonymCardRequest](#class-yandexcheckoutpayoutrequestsynonymcardrequest)</em> <strong>$request</strong>)</strong> : <em>void</em> |
+| public | <strong>serialize(</strong><em>[\YandexCheckoutPayout\Request\SynonymCardRequest](#class-yandexcheckoutpayoutrequestsynonymcardrequest)</em> <strong>$request</strong>)</strong> : <em>array</em> |
+
+
+Fatal error: Uncaught TypeError: Return value of "PHPDocsMD\Console\PHPDocsMDCommand::execute()" must be of the type int, NULL returned. in C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Command\Command.php:258
+Stack trace:
+#0 C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Application.php(912): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Application.php(264): Symfony\Component\Console\Application->doRunCommand(Object(PHPDocsMD\Console\PHPDocsMDCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Application.php(140): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutpu in C:\Intel\OSPanel\domains\payout-sdk-test.local\vendor\symfony\console\Command\Command.php on line 258

@@ -26,7 +26,11 @@
 
 namespace YandexCheckoutPayout\Model;
 
-
+/**
+ * Класс для работы с датой
+ *
+ * @package YandexCheckoutPayout\Model
+ */
 class IssueDate
 {
     protected $fullDate;

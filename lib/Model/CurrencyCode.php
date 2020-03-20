@@ -29,17 +29,20 @@ namespace YandexCheckoutPayout\Model;
 
 use YandexCheckoutPayout\Common\AbstractEnum;
 
+/**
+ * CurrencyCode - Код валюты перевода
+ *
+ * @package YandexCheckoutPayout\Model
+ */
 class CurrencyCode extends AbstractEnum
 {
-    const RUB      = 643;
-    const DEMO_RUB = 10643;
-    const USD      = 840;
-    const EUR      = 978;
+    const RUB = 643;
+    const USD = 840;
+    const EUR = 978;
 
     protected static $validValues = [
-        self::RUB      => true,
-        self::DEMO_RUB => true,
-        self::USD      => true,
-        self::EUR      => true,
+        self::RUB => true,
+        self::USD => true,
+        self::EUR => true,
     ];
 }

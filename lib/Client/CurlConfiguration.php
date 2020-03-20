@@ -29,6 +29,11 @@ namespace YandexCheckoutPayout\Client;
 use YandexCheckoutPayout\Common\Exceptions\InvalidPropertyValueTypeException;
 use YandexCheckoutPayout\Common\Helpers\TypeCast;
 
+/**
+ * Class CurlConfiguration
+ *
+ * @package YandexCheckoutPayout\Client
+ */
 class CurlConfiguration
 {
     /**

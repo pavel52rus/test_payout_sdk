@@ -29,8 +29,16 @@ namespace YandexCheckoutPayout\Request\Builders;
 
 use YandexCheckoutPayout\Request\SynonymCardRequest;
 
+/**
+ * Класс для сборки запроса SynonymCardRequest из массива
+ *
+ * @package YandexCheckoutPayout\Request\Builders
+ */
 class SynonymCardRequestBuilder extends AbstractRequestBuilder
 {
+    /**
+     * SynonymCardRequestBuilder constructor.
+     */
     public function __construct()
     {
         $this->objectRequest = new SynonymCardRequest();

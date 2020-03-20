@@ -26,6 +26,10 @@
 
 namespace YandexCheckoutPayout\Common\Exceptions;
 
+/**
+ * Class AuthorizeException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
 class AuthorizeException extends ApiException
 {
 

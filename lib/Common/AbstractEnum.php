@@ -26,7 +26,10 @@
 
 namespace YandexCheckoutPayout\Common;
 
-
+/**
+ * Class AbstractEnum
+ * @package YandexCheckoutPayout\Common
+ */
 abstract class AbstractEnum
 {
     /**

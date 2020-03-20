@@ -29,6 +29,15 @@ namespace YandexCheckoutPayout\Model;
 
 use YandexCheckoutPayout\Common\AbstractEnum;
 
+/**
+ * DstAccount - Идентификатор получателя перевода. Зависит от того, куда вы отправляете перевод.
+ * |Код|Описание|
+ * --- | ---
+ * |BANK_CARD|перевод на банковскую карту|
+ * |BANK_ACCOUNT|перевод на банковский счет|
+ *
+ * @package YandexCheckoutPayout\Model
+ */
 class DstAccount extends AbstractEnum
 {
     const BANK_ACCOUNT = '2570066962077';

@@ -4,6 +4,7 @@
 namespace Tests\YandexCheckoutPayout\Model\Recipient;
 
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use YandexCheckoutPayout\Common\Helpers\Random;
 use YandexCheckoutPayout\Common\Helpers\StringObject;
@@ -77,6 +78,9 @@ class BankAccountRecipientTest extends TestCase
         $this->assertEquals((string)$account, $instance->getBankCorAccount());
     }
 
+    /**
+     * test toArray
+     */
     public function testToArray()
     {
         $instance = new BankAccountRecipient();
@@ -98,7 +102,7 @@ class BankAccountRecipientTest extends TestCase
                      ->setSmsPhoneNumber('79998887775');
 
             $result = $instance->toArray();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->fail($e->getMessage());
             return;
         }
@@ -126,19 +130,35 @@ class BankAccountRecipientTest extends TestCase
         $this->assertEquals($excepted, $result);
     }
 
+    /**
+     * @return array|bool
+     */
     public function validStringValues()
     {
-        return [
-            [Random::str(10, 50)],
-            [new StringObject('124gfdgd')],
-        ];
+        try {
+            return [
+                [Random::str(10, 50)],
+                [new StringObject('124gfdgd')],
+            ];
+        } catch (Exception $e) {
+            $this->fail($e->getMessage());
+            return false;
+        }
     }
 
+    /**
+     * @return array|bool
+     */
     public function validBankAccounts()
     {
-        return [
-            [Random::int(99999999, 9999999999999999)],
-            ['9995435346436346643'],
-        ];
+        try {
+            return [
+                [Random::int(99999999, 9999999999999999)],
+                ['9995435346436346643'],
+            ];
+        } catch (Exception $e) {
+            $this->fail($e->getMessage());
+            return false;
+        }
     }
 }

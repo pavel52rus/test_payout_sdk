@@ -26,7 +26,13 @@
 
 namespace YandexCheckoutPayout\Common\Exceptions;
 
-class JsonException extends \UnexpectedValueException
+use UnexpectedValueException;
+
+/**
+ * Class JsonException
+ * @package YandexCheckoutPayout\Common\Exceptions
+ */
+class JsonException extends UnexpectedValueException
 {
     public static $errorLabels = [
         JSON_ERROR_NONE => 'No error',

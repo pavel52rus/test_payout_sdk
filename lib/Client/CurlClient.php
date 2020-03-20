@@ -34,6 +34,11 @@ use YandexCheckoutPayout\Common\Exceptions\OpenSSLException;
 use YandexCheckoutPayout\Common\Helpers\RawHeadersParser;
 use YandexCheckoutPayout\Common\ResponseObject;
 
+/**
+ * Class CurlClient
+ *
+ * @package YandexCheckoutPayout\Client
+ */
 class CurlClient extends BaseClient
 {
     /**
@@ -61,7 +66,6 @@ class CurlClient extends BaseClient
     /**
      * CurlClient constructor.
      * @param null $curlConfiguration
-     * @throws ExtensionNotFoundException
      */
     public function __construct($curlConfiguration = null)
     {
@@ -97,8 +101,6 @@ class CurlClient extends BaseClient
     }
 
     /**
-     * @inheritdoc
-     *
      * @param $path
      * @param $method
      * @param $queryParams
@@ -260,18 +262,19 @@ class CurlClient extends BaseClient
      */
     private function logRequestParams($path, $method, $queryParams, $httpBody, $headers)
     {
-        if ($this->logger !== null) {
+        if ($this->getLogger() !== null) {
             $message = 'Send request: ' . $method . ' ' . $path;
+            $context = array();
             if (!empty($queryParams)) {
-                $message .= ' with query params: ' . json_encode($queryParams);
+                $context['query_params'] = $queryParams;
             }
             if (!empty($httpBody)) {
-                $message .= ' with body: ' . $httpBody;
+                $context['body'] = $httpBody;
             }
             if (!empty($headers)) {
-                $message .= ' with headers: ' . json_encode($headers);
+                $context['headers'] = $headers;
             }
-            $this->getLogger()->info($message);
+            $this->getLogger()->info($message, $context);
         }
     }
 
@@ -282,13 +285,20 @@ class CurlClient extends BaseClient
      */
     private function logResponse($httpBody, $responseInfo, $httpHeaders)
     {
-        if ($this->logger !== null) {
-            $message = 'Response with code ' . $responseInfo['http_code'] . ' received with headers: '
-                . json_encode($httpHeaders);
+        if ($this->getLogger() !== null) {
+            $message = 'Response with code ' . $responseInfo['http_code'] . ' received.';
+            $context = array();
             if (!empty($httpBody)) {
-                $message .= ' and body: ' . $httpBody;
+                $data = json_decode($httpBody, true);
+                if (JSON_ERROR_NONE !== json_last_error()) {
+                    $data = $httpBody;
+                }
+                $context['body'] = $data;
             }
-            $this->getLogger()->info($message);
+            if (!empty($httpHeaders)) {
+                $context['headers'] = $httpHeaders;
+            }
+            $this->getLogger()->info($message, $context);
         }
     }
 

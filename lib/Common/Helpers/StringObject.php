@@ -29,7 +29,7 @@ namespace YandexCheckoutPayout\Common\Helpers;
 /**
  * Класс объекта, кастящегося в строку, используется только в тестах
  *
- * @package YandexCheckout\Helpers
+ * @package YandexCheckoutPayout\Common\Helpers
  */
 class StringObject
 {

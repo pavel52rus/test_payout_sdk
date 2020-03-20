@@ -29,8 +29,17 @@ namespace YandexCheckoutPayout\Request\Builders;
 
 use YandexCheckoutPayout\Request\TestDepositionRequest;
 
+/**
+ * Класс для сборки запроса TestDepositionRequest из массива
+ *
+ * @package YandexCheckoutPayout\Request\Builders
+ */
 class TestDepositionRequestBuilder extends AbstractRequestBuilder
 {
+    /**
+     * TestDepositionRequestBuilder constructor.
+     * @param null|string|int $clientOrderId
+     */
     public function __construct($clientOrderId = null)
     {
         $this->objectRequest = new TestDepositionRequest($clientOrderId);

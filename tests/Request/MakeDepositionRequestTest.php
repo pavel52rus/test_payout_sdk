@@ -2,9 +2,10 @@
 
 namespace Tests\YandexCheckoutPayout\Request;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
-use YandexCheckoutPayout\Common\Helpers\StringObject;
 use YandexCheckoutPayout\Common\Helpers\Random;
+use YandexCheckoutPayout\Common\Helpers\StringObject;
 use YandexCheckoutPayout\Model\Recipient\BankCardRecipient;
 use YandexCheckoutPayout\Request\MakeDepositionRequest;
 
@@ -66,20 +67,28 @@ class MakeDepositionRequestTest extends TestCase
         $this->assertEquals($params, $instance->getPaymentParams());
     }
 
+    /**
+     * @return array|bool
+     */
     public function validPaymentParams()
     {
         $recipient = new BankCardRecipient();
         $recipient->setSkrDestinationCardSynonym('gfdgdfgdfgdf')
                   ->setPofOfferAccepted(true);
-        return [
-            [$recipient],
-            [['random1'=>Random::str(1,10), 'random2'=>Random::int(10,55)]]
-        ];
+        try {
+            return [
+                [$recipient],
+                [['random1' => Random::str(1, 10), 'random2' => Random::int(10, 55)]]
+            ];
+        } catch (Exception $e) {
+            $this->fail($e->getMessage());
+            return false;
+        }
     }
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function validContract()
     {
@@ -93,7 +102,7 @@ class MakeDepositionRequestTest extends TestCase
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function validCurrency()
     {
